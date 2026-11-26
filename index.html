@@ -491,103 +491,74 @@
       animation: bounceCue 2s ease-in-out infinite;
     }
 
-    /* ---------------- 3. LIGHT THE DIYA — MUHURAT REVEAL ---------------- */
-    .diya-stage {
-      padding: 30px 20px;
+    /* ---------------- 3. SAVE THE DATE — ROYAL DATE CREST & COUNTDOWN ---------------- */
+    .muhurat-stage {
+      padding: 32px 20px;
       text-align: center;
     }
 
-    .diya-glow-aura {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%) scale(0.4);
-      width: 220px;
-      height: 220px;
+    .date-crest-ring {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      margin: 0 auto 18px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 195, 77, 0.36) 0%, rgba(228, 193, 111, 0.08) 50%, transparent 72%);
-      opacity: 0;
-      transition: opacity 0.8s ease, transform 0.9s ease;
+      background: radial-gradient(circle, rgba(228, 193, 111, 0.14) 0%, rgba(9, 24, 22, 0.88) 72%);
+      border: 1.5px solid rgba(228, 193, 111, 0.72);
+      box-shadow:
+        0 0 36px rgba(228, 193, 111, 0.18),
+        inset 0 0 18px rgba(228, 193, 111, 0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .date-crest-ring::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px dashed rgba(228, 193, 111, 0.45);
+      animation: spinSlow 28s linear infinite;
       pointer-events: none;
     }
 
-    .diya-stage.lit .diya-glow-aura {
-      opacity: 1;
-      transform: translateX(-50%) scale(1.15);
-    }
-
-    .diya-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .diya-flame {
-      opacity: 0;
-      transform-origin: 50px 38px;
-      transform: scale(0.3);
-      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .diya-stage.lit .diya-flame {
-      opacity: 1;
-      transform: scale(1);
-      animation: flameFlicker 1.3s ease-in-out infinite alternate;
-    }
-
-    .diya-cta {
-      padding: 9px 18px;
-      border-radius: 999px;
-      background: rgba(228, 193, 111, 0.14);
-      border: 1px solid rgba(228, 193, 111, 0.55);
-      color: var(--gold-bright);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+    .crest-day {
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .diya-stage.lit .diya-cta { display: none; }
-
-    .muhurat-reveal {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease 0.2s, margin-top 0.6s ease;
-    }
-
-    .diya-stage.lit .muhurat-reveal {
-      max-height: 340px;
-      opacity: 1;
-      margin-top: 18px;
-    }
-
-    .muhurat-date {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: var(--gold-bright);
+      color: var(--gold);
       font-weight: 600;
-      line-height: 1.15;
+    }
+
+    .crest-num {
+      font-family: var(--font-serif);
+      font-size: 3.3rem;
+      font-weight: 700;
+      line-height: 0.95;
+      margin: 2px 0;
+    }
+
+    .crest-month {
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ivory);
     }
 
     .muhurat-time {
       font-size: 0.84rem;
       color: var(--ivory);
-      margin-top: 6px;
-      line-height: 1.5;
+      margin-top: 4px;
+      line-height: 1.55;
     }
 
     .countdown-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
-      margin: 18px 0;
+      margin: 20px 0;
     }
 
     .cd-box {
@@ -1304,51 +1275,33 @@
       </div>
     </section>
 
-    <!-- 3. LIGHT THE DIYA — MUHURAT & COUNTDOWN -->
+    <!-- 3. SAVE THE DATE — ROYAL DATE CREST & COUNTDOWN -->
     <section id="muhurat" class="reveal">
       <div class="eyebrow">Shubh Muhurat</div>
-      <h2 class="sec-title">Light the Diya</h2>
+      <h2 class="sec-title">Save the Date</h2>
       <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
-      <p class="sec-sub">Tap the ceremonial lamp to illuminate the wedding date</p>
+      <p class="sec-sub">Counting down every moment to our forever</p>
 
-      <div class="royal-panel diya-stage" id="diya-stage">
-        <div class="diya-glow-aura"></div>
-        <button class="diya-btn" id="diya-btn" type="button" aria-label="Light the ceremonial diya">
-          <svg width="100" height="86" viewBox="0 0 100 86" fill="none">
-            <g class="diya-flame">
-              <path d="M50 8 C58 20, 60 32, 50 40 C40 32, 42 20, 50 8Z" fill="#ff9f1c" />
-              <path d="M50 17 C54 24, 55 32, 50 38 C45 32, 46 24, 50 17Z" fill="#fff3b0" />
-            </g>
-            <path d="M18 46 C22 64, 34 70, 50 70 C66 70, 78 64, 82 46 C68 50, 32 50, 18 46Z" fill="url(#brassGrad)" stroke="#fae3a2" stroke-width="1.2" />
-            <ellipse cx="50" cy="46" rx="32" ry="6" fill="#3a2810" stroke="#e4c16f" stroke-width="1" />
-            <rect x="38" y="70" width="24" height="6" rx="3" fill="#b5892e" />
-            <defs>
-              <linearGradient id="brassGrad" x1="18" y1="46" x2="82" y2="70">
-                <stop offset="0%" stop-color="#fae3a2" />
-                <stop offset="50%" stop-color="#c89f45" />
-                <stop offset="100%" stop-color="#876118" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <span class="diya-cta">Tap to Light the Diya</span>
-        </button>
-
-        <div class="muhurat-reveal">
-          <div class="muhurat-date">Sunday, 27 Dec 2026</div>
-          <div class="muhurat-time">
-            Muhurat &amp; Pheras at <strong>05:22 PM</strong><br />
-            Aher Garden, Nigdi, Pune
-          </div>
-
-          <div class="countdown-grid">
-            <div class="cd-box"><b id="cd-days">00</b><span>Days</span></div>
-            <div class="cd-box"><b id="cd-hrs">00</b><span>Hrs</span></div>
-            <div class="cd-box"><b id="cd-min">00</b><span>Min</span></div>
-            <div class="cd-box"><b id="cd-sec">00</b><span>Sec</span></div>
-          </div>
-
-          <button class="btn-gold" id="calendar-btn" type="button">Add to Calendar</button>
+      <div class="royal-panel muhurat-stage">
+        <div class="date-crest-ring">
+          <div class="crest-day">Sunday</div>
+          <div class="crest-num gold-foil">27</div>
+          <div class="crest-month">Dec · 2026</div>
         </div>
+
+        <div class="muhurat-time">
+          Muhurat &amp; Pheras at <strong>05:22 PM</strong><br />
+          Aher Garden, Nigdi, Pune
+        </div>
+
+        <div class="countdown-grid">
+          <div class="cd-box"><b id="cd-days">00</b><span>Days</span></div>
+          <div class="cd-box"><b id="cd-hrs">00</b><span>Hrs</span></div>
+          <div class="cd-box"><b id="cd-min">00</b><span>Min</span></div>
+          <div class="cd-box"><b id="cd-sec">00</b><span>Sec</span></div>
+        </div>
+
+        <button class="btn-gold" id="calendar-btn" type="button">Add to Calendar</button>
       </div>
     </section>
 
@@ -1790,14 +1743,7 @@
       }
     });
 
-    /* Diya Light & Countdown */
-    const diyaStage = document.getElementById("diya-stage");
-    document.getElementById("diya-btn").addEventListener("click", () => {
-      if (diyaStage.classList.contains("lit")) return;
-      diyaStage.classList.add("lit");
-      spawnGoldBurst(38, false);
-    });
-
+    /* Countdown */
     function updateCountdown() {
       const diff = Math.max(0, new Date(CONFIG.weddingDateISO).getTime() - Date.now());
       document.getElementById("cd-days").textContent = String(Math.floor(diff / 86400000)).padStart(2, "0");
