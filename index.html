@@ -411,108 +411,143 @@
       background: linear-gradient(90deg, transparent, rgba(184, 132, 28, 0.75), transparent);
     }
 
-    /* ---------------- 2. HERO ROYAL ARCH ---------------- */
+    /* ---------------- 2. EDITORIAL PORTRAIT ARCH + NAME PLAQUE HERO ---------------- */
     #hero {
       min-height: calc(100dvh - 16px);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 12px 0 20px;
+      padding: 8px 0 18px;
+      gap: 14px;
     }
 
-    .royal-arch-card {
+    .hero-editorial {
       width: 100%;
-      max-width: 356px;
-      padding: 36px 22px 28px;
-      border-radius: 185px 185px 28px 28px;
-      background:
-        radial-gradient(circle at 50% 18%, rgba(255, 240, 212, 0.8), transparent 60%),
-        linear-gradient(175deg, rgba(255, 253, 249, 0.94) 0%, rgba(250, 238, 224, 0.94) 100%);
-      border: 1.5px solid rgba(184, 132, 28, 0.52);
-      box-shadow:
-        0 24px 54px rgba(122, 31, 50, 0.12),
-        inset 0 0 0 6px rgba(255, 255, 255, 0.75);
-      text-align: center;
+      max-width: 364px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-backdrop-photo {
+    .hero-portrait-arch {
+      width: 100%;
+      height: min(330px, 40dvh);
+      border-radius: 190px 190px 24px 24px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid rgba(184, 132, 28, 0.72);
+      box-shadow: 0 20px 44px rgba(122, 31, 50, 0.16);
+      background: #f3e2ce;
+    }
+
+    .hero-portrait-arch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      animation: slowZoom 22s ease-in-out infinite alternate;
+    }
+
+    .hero-portrait-arch::after {
+      content: "";
       position: absolute;
       inset: 0;
-      background: url("photos/photo1.jpg") center/cover no-repeat;
-      opacity: 0.12;
-      transform: scale(1.04);
-      animation: slowZoom 20s ease-in-out infinite alternate;
+      background: linear-gradient(to bottom, rgba(252, 247, 239, 0.05) 45%, rgba(122, 31, 50, 0.25) 100%);
       pointer-events: none;
     }
 
-    .hero-inner {
+    .hero-arch-pearls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .hero-plaque {
+      width: 92%;
+      margin-top: -54px;
       position: relative;
-      z-index: 2;
+      z-index: 4;
+      background: linear-gradient(175deg, rgba(255, 253, 249, 0.97) 0%, rgba(251, 241, 228, 0.97) 100%);
+      border: 1.5px solid rgba(184, 132, 28, 0.6);
+      border-radius: 24px;
+      padding: 22px 18px 20px;
+      text-align: center;
+      box-shadow:
+        0 20px 44px rgba(122, 31, 50, 0.14),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .guest-greeting {
       display: inline-block;
-      padding: 5px 14px;
+      padding: 4px 13px;
       border-radius: 999px;
-      background: rgba(184, 132, 28, 0.1);
+      background: rgba(184, 132, 28, 0.12);
       border: 1px solid rgba(184, 132, 28, 0.36);
-      font-size: 0.66rem;
+      font-size: 0.62rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gold-deep);
       font-weight: 600;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .ganesh-gold {
-      width: 44px;
-      height: 44px;
-      margin: 0 auto 10px;
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 8px;
     }
 
     .hero-couple-name {
       font-family: var(--font-serif);
-      font-size: clamp(2.45rem, 10vw, 3.15rem);
+      font-size: clamp(2.3rem, 9.5vw, 2.9rem);
       font-weight: 700;
-      line-height: 1.05;
+      line-height: 1.02;
       letter-spacing: 0.02em;
     }
 
     .hero-parents {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       color: var(--muted);
-      margin-top: 5px;
-      line-height: 1.45;
+      margin-top: 3px;
+      line-height: 1.4;
     }
 
     .hero-amp {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 1.85rem;
+      font-size: 1.6rem;
       color: var(--gold);
-      margin: 6px 0 4px;
+      margin: 4px 0 2px;
     }
 
     .hero-date-pill {
-      margin-top: 18px;
-      padding-top: 14px;
+      margin-top: 14px;
+      padding-top: 12px;
+      width: 100%;
       border-top: 1px solid rgba(184, 132, 28, 0.25);
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--wine);
       font-weight: 600;
     }
 
     .scroll-down-hint {
-      margin-top: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       font-size: 0.62rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
@@ -1215,27 +1250,38 @@
   </button>
 
   <main>
-    <!-- 2. HERO ROYAL ARCH -->
+    <!-- 2. HERO: FULL-COLOUR PORTRAIT ARCH + EDITORIAL PLAQUE -->
     <section id="hero">
-      <div class="royal-arch-card">
-        <div class="hero-backdrop-photo"></div>
-        <div class="hero-inner">
-          <div class="guest-greeting" id="guest-greeting">Together with their families</div>
+      <div class="hero-editorial">
+        <div class="hero-portrait-arch">
+          <img src="photos/photo1.jpg" alt="Sushant and Ankita" />
+          <svg class="hero-arch-pearls" viewBox="0 0 364 90" fill="none" aria-hidden="true">
+            <path d="M52 72 Q 112 20 182 14 Q 252 20 312 72" stroke="#fae6b0" stroke-width="1.1" stroke-opacity="0.8" />
+            <circle cx="98" cy="42" r="2.8" fill="#fffaf0" stroke="#b8841c" stroke-width="0.8" />
+            <circle cx="138" cy="24" r="2.8" fill="#fffaf0" stroke="#b8841c" stroke-width="0.8" />
+            <circle cx="182" cy="14" r="3.6" fill="#fae6b0" stroke="#b8841c" stroke-width="1" />
+            <circle cx="226" cy="24" r="2.8" fill="#fffaf0" stroke="#b8841c" stroke-width="0.8" />
+            <circle cx="266" cy="42" r="2.8" fill="#fffaf0" stroke="#b8841c" stroke-width="0.8" />
+          </svg>
+        </div>
 
+        <div class="hero-plaque">
           <svg class="ganesh-gold" viewBox="0 0 80 80" fill="none" aria-hidden="true">
             <circle cx="40" cy="40" r="34" stroke="#b8841c" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.65" />
             <path d="M40 16c-5.5 0-10 4-10 9.5 0 2.7 1.2 5 3.1 6.7-3.8 2.2-6.1 6-6.1 10.3 0 6.8 5.2 12.2 12.2 12.7 2.8.2 5.7-.6 7.5-2.1 1.6-1.3 2.5-3.3 2.1-5.1-.4-1.8-2.2-2.7-3.8-2.2-1.4.4-2.1 1.7-1.6 3 .2.5.1 1-.3 1.3-.9.7-2.4.9-3.9.6-4-.7-6.6-3.9-6.6-7.9 0-3.2 1.8-6 4.7-7.4 1-.5 2.4-.7 3.7-.7 1.3 0 2.5.3 3.4.9 1.6 1 2.7 2.7 2.9 4.5.2 1.8-.6 3.5-2.1 4.5-.8.5-1 1.6-.4 2.3.5.7 1.5.9 2.3.4 2.8-1.8 4.4-4.9 4.1-8.2-.4-4.2-3.4-7.6-7.3-8.6 1.7-1.6 2.8-3.8 2.8-6.3 0-5.4-4.5-9.2-10-9.2z" fill="#7a1f32" />
           </svg>
 
+          <div class="guest-greeting" id="guest-greeting">Together with their families</div>
+
           <h1 class="hero-couple-name gold-foil">Sushant</h1>
-          <p class="hero-parents">Sushant Santram Sonnar<br />Son of Santram &amp; Joshana</p>
+          <p class="hero-parents">Sushant Santram Sonnar · Son of Santram &amp; Joshana</p>
 
           <div class="hero-amp">&amp;</div>
 
           <h2 class="hero-couple-name gold-foil">Ankita</h2>
-          <p class="hero-parents">Ankita Devidas Devkate<br />Daughter of Devidas &amp; Avida</p>
+          <p class="hero-parents">Ankita Devidas Devkate · Daughter of Devidas &amp; Avida</p>
 
-          <div class="hero-date-pill">27 December 2026 · Pune</div>
+          <div class="hero-date-pill">27 December 2026 · Aher Garden, Pune</div>
         </div>
       </div>
 
