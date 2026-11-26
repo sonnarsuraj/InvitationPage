@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Sushant &amp; Ankita — Royal Wedding Invitation</title>
   <meta name="description" content="Together with their families, Sushant &amp; Ankita invite you to celebrate their wedding on Sunday, 27 December 2026 at Aher Garden, Pune." />
-  <meta name="theme-color" content="#071413" />
+  <meta name="theme-color" content="#fcf7ef" />
 
   <!-- Editorial Luxury Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,16 +14,15 @@
 
   <style>
     :root {
-      --bg-deep: #061211;
-      --bg-emerald: #0d2421;
-      --bg-card: rgba(14, 36, 33, 0.78);
-      --bg-card-solid: #0d2320;
-      --gold: #e4c16f;
-      --gold-bright: #fae3a2;
-      --gold-dim: #9e7d36;
-      --ivory: #f9f4eb;
-      --muted: #b7c6c0;
-      --rose-accent: #e5989b;
+      --bg-deep: #fcf7ef;
+      --bg-blush: #f6e7de;
+      --bg-card: rgba(255, 252, 247, 0.9);
+      --gold: #b8841c;
+      --gold-bright: #d4a135;
+      --gold-deep: #8c5f0b;
+      --wine: #7a1f32;
+      --ink: #2c151a;
+      --muted: #6f5258;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -38,7 +37,7 @@
     html {
       scroll-behavior: smooth;
       background: var(--bg-deep);
-      color: var(--ivory);
+      color: var(--ink);
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -48,9 +47,10 @@
     body {
       min-height: 100dvh;
       background:
-        radial-gradient(circle at 50% 0%, rgba(28, 76, 67, 0.55), transparent 55%),
-        radial-gradient(circle at 12% 35%, rgba(228, 193, 111, 0.08), transparent 45%),
-        radial-gradient(circle at 88% 72%, rgba(25, 68, 60, 0.45), transparent 55%),
+        radial-gradient(circle at 18% 8%, rgba(255, 232, 214, 0.85), transparent 48%),
+        radial-gradient(circle at 86% 24%, rgba(246, 219, 178, 0.45), transparent 44%),
+        radial-gradient(circle at 20% 68%, rgba(246, 224, 216, 0.72), transparent 52%),
+        radial-gradient(circle at 85% 92%, rgba(250, 228, 190, 0.5), transparent 48%),
         var(--bg-deep);
       overflow-x: hidden;
       position: relative;
@@ -66,15 +66,14 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 2.5px;
+      height: 3px;
       width: 0%;
       z-index: 90;
-      background: linear-gradient(90deg, #b0852c, #fae3a2, #e4c16f);
-      box-shadow: 0 0 8px rgba(250, 227, 162, 0.6);
+      background: linear-gradient(90deg, #9c6b14, #e4be63, #7a1f32);
       transition: width 0.1s linear;
     }
 
-    /* Ambient Starlight & Gold Dust Canvas */
+    /* Ambient Golden Petals & Sunlit Sparkle Canvas */
     #starlight-canvas {
       position: fixed;
       inset: 0;
@@ -84,15 +83,15 @@
       z-index: 1;
     }
 
-    /* Gold Foil Text Shimmer */
+    /* Burnished Gold Foil Text Shimmer */
     .gold-foil {
       background: linear-gradient(
         115deg,
-        #c89f45 0%,
-        #fae3a2 28%,
-        #fff9e6 46%,
-        #e4c16f 64%,
-        #b0852c 100%
+        #7a1f32 0%,
+        #b8841c 30%,
+        #e2b95b 48%,
+        #9c6b14 66%,
+        #7a1f32 100%
       );
       background-size: 220% auto;
       -webkit-background-clip: text;
@@ -105,28 +104,28 @@
     .royal-panel {
       position: relative;
       background: var(--bg-card);
-      border: 1px solid rgba(228, 193, 111, 0.36);
+      border: 1px solid rgba(184, 132, 28, 0.34);
       border-radius: 24px;
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(12px);
       box-shadow:
-        0 22px 48px rgba(0, 0, 0, 0.42),
-        inset 0 0 0 1px rgba(228, 193, 111, 0.08);
+        0 18px 42px rgba(122, 31, 50, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.85);
       overflow: hidden;
     }
 
     .corner-filigree {
       position: absolute;
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       pointer-events: none;
-      opacity: 0.65;
+      opacity: 0.7;
     }
     .corner-filigree.tl { top: 8px; left: 8px; }
     .corner-filigree.tr { top: 8px; right: 8px; transform: scaleX(-1); }
     .corner-filigree.bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
     .corner-filigree.br { bottom: 8px; right: 8px; transform: scale(-1); }
 
-    /* ---------------- 1. PALACE JAALI DOORS OPENING ---------------- */
+    /* ---------------- 1. BRIGHT CARVED IVORY & GOLD PALACE DOORS ---------------- */
     #doors-overlay {
       position: fixed;
       inset: 0;
@@ -135,7 +134,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: var(--bg-deep);
+      background: #fdf8f0;
       transition: opacity 0.8s ease, visibility 0.8s;
     }
 
@@ -152,40 +151,60 @@
       bottom: 0;
       width: 50.5%;
       background:
-        radial-gradient(circle at 50% 35%, rgba(28, 72, 64, 0.52), transparent 70%),
-        linear-gradient(160deg, #0c2320 0%, #071514 100%);
+        radial-gradient(circle at 50% 35%, rgba(255, 240, 214, 0.9), transparent 72%),
+        linear-gradient(160deg, #fffaf2 0%, #f5e6d3 60%, #edd7bc 100%);
       transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
       display: flex;
       align-items: center;
+      justify-content: center;
       overflow: hidden;
       will-change: transform;
     }
 
     .palace-door.left {
       left: 0;
-      border-right: 1.5px solid rgba(228, 193, 111, 0.58);
-      box-shadow: inset -14px 0 32px rgba(0, 0, 0, 0.65);
+      border-right: 2px solid rgba(184, 132, 28, 0.65);
+      box-shadow: inset -12px 0 28px rgba(156, 107, 20, 0.14);
     }
 
     .palace-door.right {
       right: 0;
-      border-left: 1.5px solid rgba(228, 193, 111, 0.58);
-      box-shadow: inset 14px 0 32px rgba(0, 0, 0, 0.65);
+      border-left: 2px solid rgba(184, 132, 28, 0.65);
+      box-shadow: inset 12px 0 28px rgba(156, 107, 20, 0.14);
     }
 
     #doors-overlay.open .palace-door.left { transform: translateX(-102%); }
     #doors-overlay.open .palace-door.right { transform: translateX(102%); }
 
-    .jaali-pattern {
+    .door-arch-art {
       position: absolute;
       inset: 14px;
-      border: 1px solid rgba(228, 193, 111, 0.3);
-      opacity: 0.58;
-      background-image:
-        radial-gradient(circle, rgba(228, 193, 111, 0.25) 1.2px, transparent 1.2px),
-        linear-gradient(45deg, rgba(228, 193, 111, 0.04) 25%, transparent 25%);
-      background-size: 22px 22px, 44px 44px;
+      border: 1.5px solid rgba(184, 132, 28, 0.42);
+      border-radius: 14px;
       pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: radial-gradient(circle, rgba(184, 132, 28, 0.15) 1.2px, transparent 1.2px);
+      background-size: 20px 20px;
+    }
+
+    .door-toran {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 76px;
+      z-index: 6;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      transition: transform 0.8s ease, opacity 0.6s ease;
+    }
+
+    #doors-overlay.open .door-toran {
+      transform: translateY(-40px);
+      opacity: 0;
     }
 
     .door-center-lock {
@@ -195,7 +214,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 18px;
+      gap: 20px;
       cursor: pointer;
       transition: opacity 0.45s ease, transform 0.55s ease;
     }
@@ -207,14 +226,15 @@
     }
 
     .mandala-medallion {
-      width: 144px;
-      height: 144px;
+      width: 162px;
+      height: 162px;
       border-radius: 50%;
-      background: radial-gradient(circle, #13312c 0%, #091a18 78%);
-      border: 1.5px solid rgba(228, 193, 111, 0.82);
+      background: radial-gradient(circle, #ffffff 0%, #fdf2df 68%, #f2dec0 100%);
+      border: 2px solid rgba(184, 132, 28, 0.8);
       box-shadow:
-        0 0 42px rgba(228, 193, 111, 0.24),
-        inset 0 0 24px rgba(228, 193, 111, 0.14);
+        0 18px 46px rgba(122, 31, 50, 0.18),
+        0 0 0 8px rgba(255, 250, 240, 0.72),
+        inset 0 0 22px rgba(184, 132, 28, 0.16);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -225,45 +245,54 @@
 
     .mandala-ring {
       position: absolute;
-      inset: -11px;
-      animation: spinSlow 24s linear infinite;
+      inset: -16px;
+      animation: spinSlow 26s linear infinite;
       pointer-events: none;
     }
 
     .medallion-sub {
-      font-size: 0.56rem;
+      font-size: 0.58rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-deep);
+      font-weight: 600;
       margin-bottom: 2px;
     }
 
     .medallion-initials {
       font-family: var(--font-serif);
-      font-size: 2.15rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-size: 2.35rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .medallion-names {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--wine);
+      margin-top: -2px;
     }
 
     .medallion-date {
-      font-size: 0.62rem;
-      letter-spacing: 0.24em;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .unlock-pill {
-      padding: 11px 22px;
+      padding: 12px 24px;
       border-radius: 999px;
-      background: rgba(16, 42, 37, 0.92);
-      border: 1px solid rgba(228, 193, 111, 0.62);
-      color: var(--gold-bright);
+      background: linear-gradient(135deg, #7a1f32 0%, #5a1322 100%);
+      border: 1.5px solid rgba(228, 190, 99, 0.75);
+      color: #fae6b0;
       font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 500;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(122, 31, 50, 0.26);
       animation: pulseGlow 2.2s ease-in-out infinite;
     }
 
@@ -278,16 +307,16 @@
       gap: 8px;
       padding: 10px 15px;
       border-radius: 999px;
-      background: rgba(13, 36, 33, 0.9);
-      color: var(--gold-bright);
-      border: 1px solid rgba(228, 193, 111, 0.55);
+      background: rgba(122, 31, 50, 0.92);
+      color: #fae6b0;
+      border: 1px solid rgba(228, 190, 99, 0.7);
       font-family: var(--font-sans);
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       cursor: pointer;
       backdrop-filter: blur(10px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 10px 24px rgba(122, 31, 50, 0.28);
     }
 
     #music-btn.visible { display: inline-flex; }
@@ -302,7 +331,7 @@
     .eq-bars span {
       width: 2.5px;
       height: 4px;
-      background: var(--gold);
+      background: #fae6b0;
       border-radius: 2px;
     }
 
@@ -320,7 +349,7 @@
     }
 
     section {
-      padding: 38px 0;
+      padding: 36px 0;
       position: relative;
     }
 
@@ -339,7 +368,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-deep);
       text-align: center;
       font-weight: 600;
       margin-bottom: 6px;
@@ -351,7 +380,7 @@
       font-weight: 600;
       text-align: center;
       line-height: 1.12;
-      color: var(--ivory);
+      color: var(--wine);
       margin-bottom: 8px;
     }
 
@@ -371,7 +400,7 @@
       gap: 10px;
       width: 160px;
       margin: 0 auto 14px;
-      opacity: 0.75;
+      opacity: 0.8;
     }
 
     .royal-divider::before,
@@ -379,7 +408,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(228, 193, 111, 0.75), transparent);
+      background: linear-gradient(90deg, transparent, rgba(184, 132, 28, 0.75), transparent);
     }
 
     /* ---------------- 2. HERO ROYAL ARCH ---------------- */
@@ -398,12 +427,12 @@
       padding: 36px 22px 28px;
       border-radius: 185px 185px 28px 28px;
       background:
-        radial-gradient(circle at 50% 18%, rgba(228, 193, 111, 0.14), transparent 58%),
-        linear-gradient(175deg, rgba(16, 42, 38, 0.92) 0%, rgba(9, 24, 22, 0.96) 100%);
-      border: 1px solid rgba(228, 193, 111, 0.5);
+        radial-gradient(circle at 50% 18%, rgba(255, 240, 212, 0.8), transparent 60%),
+        linear-gradient(175deg, rgba(255, 253, 249, 0.94) 0%, rgba(250, 238, 224, 0.94) 100%);
+      border: 1.5px solid rgba(184, 132, 28, 0.52);
       box-shadow:
-        0 26px 60px rgba(0, 0, 0, 0.58),
-        inset 0 0 0 6px rgba(228, 193, 111, 0.08);
+        0 24px 54px rgba(122, 31, 50, 0.12),
+        inset 0 0 0 6px rgba(255, 255, 255, 0.75);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -413,7 +442,7 @@
       position: absolute;
       inset: 0;
       background: url("photos/photo1.jpg") center/cover no-repeat;
-      opacity: 0.14;
+      opacity: 0.12;
       transform: scale(1.04);
       animation: slowZoom 20s ease-in-out infinite alternate;
       pointer-events: none;
@@ -428,12 +457,13 @@
       display: inline-block;
       padding: 5px 14px;
       border-radius: 999px;
-      background: rgba(228, 193, 111, 0.13);
-      border: 1px solid rgba(228, 193, 111, 0.36);
+      background: rgba(184, 132, 28, 0.1);
+      border: 1px solid rgba(184, 132, 28, 0.36);
       font-size: 0.66rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--gold-bright);
+      color: var(--gold-deep);
+      font-weight: 600;
       margin-bottom: 14px;
     }
 
@@ -441,13 +471,12 @@
       width: 44px;
       height: 44px;
       margin: 0 auto 10px;
-      opacity: 0.95;
     }
 
     .hero-couple-name {
       font-family: var(--font-serif);
       font-size: clamp(2.45rem, 10vw, 3.15rem);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.05;
       letter-spacing: 0.02em;
     }
@@ -470,11 +499,12 @@
     .hero-date-pill {
       margin-top: 18px;
       padding-top: 14px;
-      border-top: 1px solid rgba(228, 193, 111, 0.24);
+      border-top: 1px solid rgba(184, 132, 28, 0.25);
       font-size: 0.72rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold-bright);
+      color: var(--wine);
+      font-weight: 600;
     }
 
     .scroll-down-hint {
@@ -486,8 +516,8 @@
       font-size: 0.62rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.85;
+      color: var(--wine);
+      opacity: 0.8;
       animation: bounceCue 2s ease-in-out infinite;
     }
 
@@ -503,11 +533,11 @@
       height: 148px;
       margin: 0 auto 18px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(228, 193, 111, 0.14) 0%, rgba(9, 24, 22, 0.88) 72%);
-      border: 1.5px solid rgba(228, 193, 111, 0.72);
+      background: radial-gradient(circle, #ffffff 0%, #fcf0dc 75%);
+      border: 1.5px solid rgba(184, 132, 28, 0.65);
       box-shadow:
-        0 0 36px rgba(228, 193, 111, 0.18),
-        inset 0 0 18px rgba(228, 193, 111, 0.12);
+        0 12px 30px rgba(122, 31, 50, 0.1),
+        inset 0 0 16px rgba(184, 132, 28, 0.12);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -519,7 +549,7 @@
       position: absolute;
       inset: -8px;
       border-radius: 50%;
-      border: 1px dashed rgba(228, 193, 111, 0.45);
+      border: 1px dashed rgba(184, 132, 28, 0.55);
       animation: spinSlow 28s linear infinite;
       pointer-events: none;
     }
@@ -528,7 +558,7 @@
       font-size: 0.62rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-deep);
       font-weight: 600;
     }
 
@@ -544,12 +574,13 @@
       font-size: 0.64rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ivory);
+      color: var(--wine);
+      font-weight: 600;
     }
 
     .muhurat-time {
       font-size: 0.84rem;
-      color: var(--ivory);
+      color: var(--ink);
       margin-top: 4px;
       line-height: 1.55;
     }
@@ -562,18 +593,19 @@
     }
 
     .cd-box {
-      background: rgba(7, 20, 19, 0.82);
-      border: 1px solid rgba(228, 193, 111, 0.32);
+      background: #ffffff;
+      border: 1px solid rgba(184, 132, 28, 0.34);
       border-radius: 14px;
       padding: 10px 4px;
       text-align: center;
+      box-shadow: 0 6px 16px rgba(122, 31, 50, 0.05);
     }
 
     .cd-box b {
       display: block;
       font-family: var(--font-serif);
       font-size: 1.55rem;
-      color: var(--gold-bright);
+      color: var(--wine);
       line-height: 1.1;
     }
 
@@ -591,17 +623,17 @@
       gap: 8px;
       padding: 12px 22px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #e4c16f 0%, #b5892e 100%);
-      color: #091816;
+      background: linear-gradient(135deg, #7a1f32 0%, #5a1322 100%);
+      color: #fae6b0;
       font-family: var(--font-sans);
       font-size: 0.74rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      border: none;
+      border: 1px solid rgba(228, 190, 99, 0.65);
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 10px 24px rgba(228, 193, 111, 0.25);
+      box-shadow: 0 10px 24px rgba(122, 31, 50, 0.22);
       transition: transform 0.2s ease;
     }
 
@@ -614,12 +646,12 @@
       gap: 8px;
       padding: 11px 20px;
       border-radius: 999px;
-      background: transparent;
-      border: 1px solid rgba(228, 193, 111, 0.6);
-      color: var(--gold-bright);
+      background: #ffffff;
+      border: 1.5px solid rgba(184, 132, 28, 0.65);
+      color: var(--wine);
       font-family: var(--font-sans);
       font-size: 0.74rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       cursor: pointer;
@@ -645,17 +677,17 @@
       top: 12px;
       bottom: 12px;
       width: 1.5px;
-      background: linear-gradient(to bottom, transparent, rgba(228, 193, 111, 0.72), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(184, 132, 28, 0.75), transparent);
     }
 
     .tl-card {
       position: relative;
       background: var(--bg-card);
-      border: 1px solid rgba(228, 193, 111, 0.28);
+      border: 1px solid rgba(184, 132, 28, 0.3);
       border-radius: 20px;
       padding: 16px 18px;
       backdrop-filter: blur(10px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 12px 28px rgba(122, 31, 50, 0.06);
     }
 
     .tl-node {
@@ -665,8 +697,8 @@
       width: 11px;
       height: 11px;
       border-radius: 50%;
-      background: var(--gold-bright);
-      box-shadow: 0 0 0 4px rgba(228, 193, 111, 0.22);
+      background: var(--wine);
+      box-shadow: 0 0 0 4px rgba(184, 132, 28, 0.26);
     }
 
     .tl-top {
@@ -680,14 +712,14 @@
       font-size: 0.64rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-deep);
       font-weight: 600;
     }
 
     .tl-name {
       font-family: var(--font-serif);
       font-size: 1.6rem;
-      color: var(--ivory);
+      color: var(--wine);
       font-weight: 600;
       margin: 2px 0 4px;
     }
@@ -702,8 +734,8 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(228, 193, 111, 0.12);
-      border: 1px solid rgba(228, 193, 111, 0.42);
+      background: #fdf3e3;
+      border: 1px solid rgba(184, 132, 28, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -717,10 +749,11 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(7, 20, 19, 0.75);
-      border: 1px solid rgba(228, 193, 111, 0.28);
+      background: #fbf2e6;
+      border: 1px solid rgba(184, 132, 28, 0.34);
       font-size: 0.7rem;
-      color: var(--ivory);
+      color: var(--ink);
+      font-weight: 500;
       cursor: pointer;
     }
 
@@ -733,7 +766,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(0, 0, 0, 0.15);
     }
 
     /* ---------------- 5. INTERACTIVE POLAROID STACK ---------------- */
@@ -755,8 +788,8 @@
     }
 
     .polaroid-card[data-stack="0"] { z-index: 4; transform: rotate(-1deg) translateY(0); opacity: 1; }
-    .polaroid-card[data-stack="1"] { z-index: 3; transform: rotate(3.5deg) translate(8px, 8px) scale(0.96); opacity: 0.82; pointer-events: none; }
-    .polaroid-card[data-stack="2"] { z-index: 2; transform: rotate(-4deg) translate(-8px, 14px) scale(0.92); opacity: 0.6; pointer-events: none; }
+    .polaroid-card[data-stack="1"] { z-index: 3; transform: rotate(3.5deg) translate(8px, 8px) scale(0.96); opacity: 0.88; pointer-events: none; }
+    .polaroid-card[data-stack="2"] { z-index: 2; transform: rotate(-4deg) translate(-8px, 14px) scale(0.92); opacity: 0.7; pointer-events: none; }
     .polaroid-card[data-stack="hidden"] { z-index: 1; transform: scale(0.88) translateY(20px); opacity: 0; pointer-events: none; }
 
     .polaroid-card[data-stack="0"].flipped {
@@ -769,9 +802,10 @@
       backface-visibility: hidden;
       border-radius: 18px;
       padding: 12px 12px 16px;
-      background: #fbf7ef;
-      color: #162b28;
-      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.48);
+      background: #ffffff;
+      border: 1px solid rgba(184, 132, 28, 0.32);
+      color: var(--ink);
+      box-shadow: 0 18px 36px rgba(122, 31, 50, 0.12);
       display: flex;
       flex-direction: column;
     }
@@ -791,14 +825,14 @@
       font-style: italic;
       font-size: 1.05rem;
       text-align: center;
-      color: #15312c;
+      color: var(--wine);
     }
 
     .polaroid-back {
       transform: rotateY(180deg);
-      background: linear-gradient(155deg, #13312c 0%, #091a18 100%);
-      border: 1.5px solid rgba(228, 193, 111, 0.65);
-      color: var(--ivory);
+      background: linear-gradient(155deg, #fffaf2 0%, #f5e5d2 100%);
+      border: 1.5px solid rgba(184, 132, 28, 0.65);
+      color: var(--ink);
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -811,7 +845,7 @@
       font-style: italic;
       font-size: 1.35rem;
       line-height: 1.45;
-      color: var(--gold-bright);
+      color: var(--wine);
     }
 
     .polaroid-controls {
@@ -825,9 +859,10 @@
       font-size: 0.74rem;
       letter-spacing: 0.14em;
       color: var(--muted);
+      font-weight: 600;
     }
 
-    /* ---------------- 6. WEDDING TRIVIA MINI-GAME ("WHO'S MOST LIKELY?") ---------------- */
+    /* ---------------- 6. WEDDING TRIVIA MINI-GAME ---------------- */
     .trivia-card {
       padding: 24px 20px;
       text-align: center;
@@ -837,7 +872,8 @@
       font-size: 0.66rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-deep);
+      font-weight: 600;
       margin-bottom: 10px;
     }
 
@@ -845,7 +881,8 @@
       font-family: var(--font-serif);
       font-size: 1.5rem;
       line-height: 1.3;
-      color: var(--ivory);
+      color: var(--wine);
+      font-weight: 600;
       margin-bottom: 18px;
       min-height: 2.6em;
       display: flex;
@@ -863,30 +900,31 @@
     .trivia-opt {
       padding: 13px 10px;
       border-radius: 14px;
-      background: rgba(7, 20, 19, 0.78);
-      border: 1px solid rgba(228, 193, 111, 0.35);
-      color: var(--ivory);
+      background: #ffffff;
+      border: 1px solid rgba(184, 132, 28, 0.4);
+      color: var(--ink);
       font-family: var(--font-sans);
       font-size: 0.84rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .trivia-opt.selected-right {
-      background: rgba(45, 106, 79, 0.6);
-      border-color: #74c69d;
-      color: #fff;
+      background: #e3f4ea;
+      border-color: #2d6a4f;
+      color: #1b4332;
     }
 
     .trivia-opt.selected-wrong {
-      background: rgba(110, 31, 47, 0.55);
-      border-color: var(--rose-accent);
+      background: #fbe4e6;
+      border-color: #b54558;
+      color: #7a1f32;
     }
 
     .trivia-fact {
       font-size: 0.78rem;
-      color: var(--gold-bright);
+      color: var(--wine);
       min-height: 2.4em;
       line-height: 1.45;
       margin-bottom: 12px;
@@ -904,20 +942,21 @@
     .w-tab {
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(228, 193, 111, 0.32);
-      background: rgba(14, 36, 33, 0.65);
+      border: 1px solid rgba(184, 132, 28, 0.35);
+      background: #ffffff;
       color: var(--muted);
       font-family: var(--font-sans);
       font-size: 0.7rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      font-weight: 500;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .w-tab.active {
-      background: linear-gradient(135deg, #e4c16f, #b5892e);
-      color: #071413;
+      background: linear-gradient(135deg, #7a1f32, #5a1322);
+      color: #fae6b0;
       border-color: transparent;
       font-weight: 600;
     }
@@ -941,27 +980,28 @@
       gap: 6px;
       font-size: 0.68rem;
       color: var(--muted);
+      font-weight: 500;
     }
 
     .palette-circle {
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+      border: 1.5px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 14px rgba(122, 31, 50, 0.12);
     }
 
-    /* ---------------- 8. GRAND RECEPTION JEWEL CARD ---------------- */
+    /* ---------------- 8. GRAND RECEPTION CHAMPAGNE CARD ---------------- */
     .jewel-card {
       padding: 38px 24px;
       text-align: center;
       background:
-        radial-gradient(circle at 50% 0%, rgba(228, 193, 111, 0.2), transparent 60%),
-        linear-gradient(155deg, #133630 0%, #0a1f1c 100%);
-      border: 1.5px solid rgba(228, 193, 111, 0.6);
+        radial-gradient(circle at 50% 0%, rgba(255, 229, 184, 0.65), transparent 65%),
+        linear-gradient(155deg, #fffaf2 0%, #f5e2cc 100%);
+      border: 1.5px solid rgba(184, 132, 28, 0.65);
     }
 
-    /* ---------------- 8. LOCATION & TRAVEL PILLS ---------------- */
+    /* ---------------- 9. SUNLIT PARCHMENT MAP CARD ---------------- */
     .night-map-card {
       padding: 18px;
       text-align: center;
@@ -973,7 +1013,7 @@
       height: 170px;
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(228, 193, 111, 0.35);
+      border: 1px solid rgba(184, 132, 28, 0.42);
       margin-bottom: 16px;
       text-decoration: none;
     }
@@ -995,13 +1035,15 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(7, 20, 19, 0.92);
-      border: 1px solid rgba(228, 193, 111, 0.55);
+      background: rgba(255, 252, 247, 0.96);
+      border: 1px solid rgba(184, 132, 28, 0.6);
       padding: 5px 12px;
       border-radius: 999px;
       font-size: 0.68rem;
-      color: var(--gold-bright);
+      font-weight: 600;
+      color: var(--wine);
       white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .travel-pills {
@@ -1017,8 +1059,8 @@
       color: var(--muted);
       padding: 5px 10px;
       border-radius: 999px;
-      background: rgba(7, 20, 19, 0.72);
-      border: 1px solid rgba(228, 193, 111, 0.22);
+      background: #fbf2e6;
+      border: 1px solid rgba(184, 132, 28, 0.28);
     }
 
     .map-actions {
@@ -1029,14 +1071,14 @@
       margin-top: 14px;
     }
 
-    /* ---------------- 11. CLOSING & AKSHATA ---------------- */
+    /* ---------------- 10. CLOSING & AKSHATA ---------------- */
     #closing {
       text-align: center;
       padding-bottom: 28px;
     }
 
     .blessing-box {
-      margin-top: 14px;
+      margin-top: 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1054,9 +1096,9 @@
       bottom: 72px;
       left: 50%;
       transform: translateX(-50%) translateY(14px);
-      background: #133630;
-      color: var(--gold-bright);
-      border: 1px solid rgba(228, 193, 111, 0.55);
+      background: var(--wine);
+      color: #fae6b0;
+      border: 1px solid rgba(228, 190, 99, 0.6);
       padding: 10px 18px;
       border-radius: 999px;
       font-size: 0.76rem;
@@ -1088,16 +1130,12 @@
       100% { transform: scale(1.12); }
     }
     @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45); }
-      50% { box-shadow: 0 8px 28px rgba(228, 193, 111, 0.25); }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
     }
     @keyframes bounceCue {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(6px); }
-    }
-    @keyframes flameFlicker {
-      0% { transform: scale(0.96) rotate(-2deg); }
-      100% { transform: scale(1.06) rotate(2deg); }
     }
     @keyframes drawRoute {
       0% { stroke-dashoffset: 240; }
@@ -1118,25 +1156,55 @@
     <source src="song.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Starlight & Gold Dust Canvas -->
+  <!-- Sunlit Golden Sparkle & Petal Canvas -->
   <canvas id="starlight-canvas"></canvas>
 
-  <!-- 1. ROYAL PALACE JAALI DOORS OPENING -->
+  <!-- 1. BRIGHT IVORY & GOLD CARVED PALACE DOORS -->
   <div id="doors-overlay" aria-label="Royal Wedding Invitation Doors">
-    <div class="palace-door left"><div class="jaali-pattern"></div></div>
-    <div class="palace-door right"><div class="jaali-pattern"></div></div>
+    <!-- Hanging Mango-Leaf & Marigold Toran -->
+    <div class="door-toran" aria-hidden="true">
+      <svg width="420" height="76" viewBox="0 0 420 76" fill="none">
+        <path d="M0 10 Q105 46 210 14 Q315 46 420 10" stroke="#b8841c" stroke-width="2" fill="none" />
+        <circle cx="52" cy="24" r="9" fill="#f4b942" stroke="#b8841c" stroke-width="1" />
+        <circle cx="105" cy="29" r="10" fill="#e67e22" stroke="#b8841c" stroke-width="1" />
+        <circle cx="158" cy="24" r="9" fill="#f4b942" stroke="#b8841c" stroke-width="1" />
+        <circle cx="210" cy="18" r="11" fill="#7a1f32" stroke="#e4be63" stroke-width="1.2" />
+        <circle cx="262" cy="24" r="9" fill="#f4b942" stroke="#b8841c" stroke-width="1" />
+        <circle cx="315" cy="29" r="10" fill="#e67e22" stroke="#b8841c" stroke-width="1" />
+        <circle cx="368" cy="24" r="9" fill="#f4b942" stroke="#b8841c" stroke-width="1" />
+      </svg>
+    </div>
 
-    <div class="door-center-lock" id="unlock-btn" role="button" tabindex="0" aria-label="Tap to unlock the celebration">
+    <div class="palace-door left">
+      <div class="door-arch-art">
+        <svg width="130" height="260" viewBox="0 0 130 260" fill="none" opacity="0.55" aria-hidden="true">
+          <path d="M12 248 V95 Q12 18 118 18 V248" stroke="#b8841c" stroke-width="1.4" />
+          <path d="M26 236 V100 Q26 36 106 36 V236" stroke="#b8841c" stroke-width="0.9" stroke-dasharray="3 3" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="palace-door right">
+      <div class="door-arch-art">
+        <svg width="130" height="260" viewBox="0 0 130 260" fill="none" opacity="0.55" aria-hidden="true">
+          <path d="M12 248 V18 Q118 18 118 95 V248" stroke="#b8841c" stroke-width="1.4" />
+          <path d="M24 236 V36 Q104 36 104 100 V236" stroke="#b8841c" stroke-width="0.9" stroke-dasharray="3 3" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="door-center-lock" id="unlock-btn" role="button" tabindex="0" aria-label="Tap to open the palace doors">
       <div class="mandala-medallion">
-        <svg class="mandala-ring" viewBox="0 0 160 160" fill="none" aria-hidden="true">
-          <circle cx="80" cy="80" r="74" stroke="#e4c16f" stroke-width="1" stroke-dasharray="4 5" stroke-opacity="0.72" />
-          <circle cx="80" cy="80" r="66" stroke="#e4c16f" stroke-width="0.7" stroke-opacity="0.4" />
+        <svg class="mandala-ring" viewBox="0 0 180 180" fill="none" aria-hidden="true">
+          <circle cx="90" cy="90" r="84" stroke="#b8841c" stroke-width="1.2" stroke-dasharray="4 5" stroke-opacity="0.7" />
+          <circle cx="90" cy="90" r="76" stroke="#7a1f32" stroke-width="0.8" stroke-opacity="0.35" />
         </svg>
         <div class="medallion-sub">Shubh Vivaah</div>
         <div class="medallion-initials gold-foil">S &amp; A</div>
+        <div class="medallion-names">Sushant &amp; Ankita</div>
         <div class="medallion-date">27 · 12 · 2026</div>
       </div>
-      <div class="unlock-pill">Tap to Unlock Celebration</div>
+      <div class="unlock-pill">Tap to Open Invitation</div>
     </div>
   </div>
 
@@ -1155,8 +1223,8 @@
           <div class="guest-greeting" id="guest-greeting">Together with their families</div>
 
           <svg class="ganesh-gold" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-            <circle cx="40" cy="40" r="34" stroke="#e4c16f" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.65" />
-            <path d="M40 16c-5.5 0-10 4-10 9.5 0 2.7 1.2 5 3.1 6.7-3.8 2.2-6.1 6-6.1 10.3 0 6.8 5.2 12.2 12.2 12.7 2.8.2 5.7-.6 7.5-2.1 1.6-1.3 2.5-3.3 2.1-5.1-.4-1.8-2.2-2.7-3.8-2.2-1.4.4-2.1 1.7-1.6 3 .2.5.1 1-.3 1.3-.9.7-2.4.9-3.9.6-4-.7-6.6-3.9-6.6-7.9 0-3.2 1.8-6 4.7-7.4 1-.5 2.4-.7 3.7-.7 1.3 0 2.5.3 3.4.9 1.6 1 2.7 2.7 2.9 4.5.2 1.8-.6 3.5-2.1 4.5-.8.5-1 1.6-.4 2.3.5.7 1.5.9 2.3.4 2.8-1.8 4.4-4.9 4.1-8.2-.4-4.2-3.4-7.6-7.3-8.6 1.7-1.6 2.8-3.8 2.8-6.3 0-5.4-4.5-9.2-10-9.2z" fill="#fae3a2" />
+            <circle cx="40" cy="40" r="34" stroke="#b8841c" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.65" />
+            <path d="M40 16c-5.5 0-10 4-10 9.5 0 2.7 1.2 5 3.1 6.7-3.8 2.2-6.1 6-6.1 10.3 0 6.8 5.2 12.2 12.2 12.7 2.8.2 5.7-.6 7.5-2.1 1.6-1.3 2.5-3.3 2.1-5.1-.4-1.8-2.2-2.7-3.8-2.2-1.4.4-2.1 1.7-1.6 3 .2.5.1 1-.3 1.3-.9.7-2.4.9-3.9.6-4-.7-6.6-3.9-6.6-7.9 0-3.2 1.8-6 4.7-7.4 1-.5 2.4-.7 3.7-.7 1.3 0 2.5.3 3.4.9 1.6 1 2.7 2.7 2.9 4.5.2 1.8-.6 3.5-2.1 4.5-.8.5-1 1.6-.4 2.3.5.7 1.5.9 2.3.4 2.8-1.8 4.4-4.9 4.1-8.2-.4-4.2-3.4-7.6-7.3-8.6 1.7-1.6 2.8-3.8 2.8-6.3 0-5.4-4.5-9.2-10-9.2z" fill="#7a1f32" />
           </svg>
 
           <h1 class="hero-couple-name gold-foil">Sushant</h1>
@@ -1183,7 +1251,7 @@
     <section id="muhurat" class="reveal">
       <div class="eyebrow">Shubh Muhurat</div>
       <h2 class="sec-title">Save the Date</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
       <p class="sec-sub">Counting down every moment to our forever</p>
 
       <div class="royal-panel muhurat-stage">
@@ -1213,7 +1281,7 @@
     <section id="festivities" class="reveal">
       <div class="eyebrow">The Celebrations</div>
       <h2 class="sec-title">Wedding Timeline</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
       <p class="sec-sub">Two days of sacred rituals, music &amp; joy</p>
 
       <div class="timeline-wrap" id="timeline-wrap"></div>
@@ -1223,7 +1291,7 @@
     <section id="story" class="reveal">
       <div class="eyebrow">Memories</div>
       <h2 class="sec-title">Our Story</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
       <p class="sec-sub">Tap a Polaroid to flip &amp; read the memory behind it</p>
 
       <div class="polaroid-stage" id="polaroid-stage"></div>
@@ -1239,7 +1307,7 @@
     <section id="trivia" class="reveal">
       <div class="eyebrow">Fun Activity</div>
       <h2 class="sec-title">How Well Do You Know Us?</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
       <p class="sec-sub">Play our quick 3-question wedding trivia</p>
 
       <div class="royal-panel trivia-card">
@@ -1258,7 +1326,7 @@
     <section id="wardrobe" class="reveal">
       <div class="eyebrow">Style Guide</div>
       <h2 class="sec-title">What to Wear</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
       <p class="sec-sub">Pune in late December is pleasant (16°C – 27°C) — bring a light shawl for the evening</p>
 
       <div class="wardrobe-tabs" id="wardrobe-tabs">
@@ -1275,12 +1343,12 @@
       <div class="royal-panel jewel-card">
         <div class="eyebrow">Evening Gala</div>
         <h2 class="sec-title gold-foil" style="font-size:2.4rem;">Grand Reception</h2>
-        <p style="font-size:0.88rem;line-height:1.75;color:var(--ivory);margin-top:10px;">
+        <p style="font-size:0.88rem;line-height:1.75;color:var(--ink);margin-top:10px;">
           <strong>Sunday, 27 December 2026</strong><br />
           7:30 PM onwards · Dinner &amp; Celebrations<br />
           Aher Garden, Nigdi, Pune
         </p>
-        <div style="display:inline-block;margin-top:18px;padding:8px 16px;border-radius:999px;border:1px solid rgba(228,193,111,0.45);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-bright);">
+        <div style="display:inline-block;margin-top:18px;padding:8px 16px;border-radius:999px;border:1px solid rgba(184,132,28,0.55);background:rgba(255,255,255,0.65);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--wine);font-weight:600;">
           Dress Code: Festive &amp; Ethnic
         </div>
       </div>
@@ -1290,28 +1358,28 @@
     <section id="location" class="reveal">
       <div class="eyebrow">Venue</div>
       <h2 class="sec-title">How to Reach</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
 
       <div class="royal-panel night-map-card">
         <a class="night-map-link" href="https://maps.app.goo.gl/ZywfxQpe42gLpZCR8" target="_blank" rel="noopener noreferrer" aria-label="Open Aher Garden on Google Maps">
           <svg viewBox="0 0 320 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="320" height="170" fill="#091a18" />
-            <rect x="14" y="18" width="76" height="48" rx="10" fill="#102b27" stroke="#e4c16f" stroke-opacity="0.22" />
-            <rect x="112" y="14" width="84" height="52" rx="10" fill="#13332e" stroke="#e4c16f" stroke-opacity="0.22" />
-            <rect x="220" y="20" width="82" height="54" rx="10" fill="#102b27" stroke="#e4c16f" stroke-opacity="0.22" />
-            <rect x="22" y="88" width="94" height="58" rx="10" fill="#13332e" stroke="#e4c16f" stroke-opacity="0.22" />
-            <rect x="140" y="92" width="160" height="54" rx="10" fill="#102b27" stroke="#e4c16f" stroke-opacity="0.22" />
-            <path d="M0 78H320M102 0V170M206 0V170" stroke="#183f39" stroke-width="9" />
-            <path class="map-route-gold" d="M46 132 C 88 132, 102 78, 154 78 C 192 78, 206 68, 215 68" stroke="#fae3a2" stroke-width="3" stroke-linecap="round" />
-            <circle cx="46" cy="132" r="4.5" fill="#e4c16f" />
-            <circle cx="215" cy="68" r="16" fill="rgba(228,193,111,0.18)" />
-            <path d="M215 36c-9.5 0-17 7.4-17 16.6 0 11.8 17 26.4 17 26.4s17-14.6 17-26.4C232 43.4 224.5 36 215 36z" fill="#e4c16f" />
-            <circle cx="215" cy="52" r="5" fill="#091a18" />
+            <rect width="320" height="170" fill="#fbf3e8" />
+            <rect x="14" y="18" width="76" height="48" rx="10" fill="#f1e2cf" stroke="#b8841c" stroke-opacity="0.28" />
+            <rect x="112" y="14" width="84" height="52" rx="10" fill="#ead7bf" stroke="#b8841c" stroke-opacity="0.28" />
+            <rect x="220" y="20" width="82" height="54" rx="10" fill="#f1e2cf" stroke="#b8841c" stroke-opacity="0.28" />
+            <rect x="22" y="88" width="94" height="58" rx="10" fill="#ead7bf" stroke="#b8841c" stroke-opacity="0.28" />
+            <rect x="140" y="92" width="160" height="54" rx="10" fill="#f1e2cf" stroke="#b8841c" stroke-opacity="0.28" />
+            <path d="M0 78H320M102 0V170M206 0V170" stroke="#ffffff" stroke-width="9" />
+            <path class="map-route-gold" d="M46 132 C 88 132, 102 78, 154 78 C 192 78, 206 68, 215 68" stroke="#7a1f32" stroke-width="3.2" stroke-linecap="round" />
+            <circle cx="46" cy="132" r="4.5" fill="#b8841c" />
+            <circle cx="215" cy="68" r="16" fill="rgba(122,31,50,0.14)" />
+            <path d="M215 36c-9.5 0-17 7.4-17 16.6 0 11.8 17 26.4 17 26.4s17-14.6 17-26.4C232 43.4 224.5 36 215 36z" fill="#7a1f32" stroke="#f0d78c" stroke-width="1.5" />
+            <circle cx="215" cy="52" r="5" fill="#fae6b0" />
           </svg>
           <span class="map-badge-dark">Tap to open in Google Maps</span>
         </a>
 
-        <h3 style="font-family:var(--font-serif);font-size:1.55rem;color:var(--gold-bright);margin-bottom:6px;">Aher Garden</h3>
+        <h3 style="font-family:var(--font-serif);font-size:1.55rem;color:var(--wine);margin-bottom:6px;">Aher Garden</h3>
         <p style="font-size:0.78rem;color:var(--muted);line-height:1.55;max-width:300px;margin:0 auto;">
           Aher Garden, Atharv Park Society, Chinchwad, Aher Estate Rd, Walhekarwadi, Sector No. 30, Nigdi, Pune, Maharashtra 411033
         </p>
@@ -1332,12 +1400,12 @@
     <!-- 10. CLOSING & AKSHATA -->
     <section id="closing" class="reveal">
       <div class="eyebrow">With Blessings</div>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
+      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#b8841c"/></svg></div>
 
-      <p style="font-family:var(--font-serif);font-style:italic;font-size:1.55rem;color:var(--gold-bright);max-width:270px;margin:10px auto 8px;line-height:1.4;">
+      <p style="font-family:var(--font-serif);font-style:italic;font-size:1.55rem;color:var(--wine);max-width:270px;margin:10px auto 8px;line-height:1.4;">
         “We can’t wait to celebrate with you”
       </p>
-      <div style="font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
+      <div style="font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;">
         With love, the Sonnar &amp; Devkate families
       </div>
 
@@ -1360,8 +1428,8 @@
           when: "Sat, 26 Dec · 08:30 AM",
           place: "Family Residence, Pune",
           dress: "Traditional Silk",
-          swatches: ["#f8f3ea", "#e4c16f", "#c87d55"],
-          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 18h10l-1-6H8l-1 6z" stroke="#e4c16f" stroke-width="1.5"/><circle cx="12" cy="8" r="3" fill="#fae3a2"/></svg>`
+          swatches: ["#f8f3ea", "#d4a135", "#c87d55"],
+          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 18h10l-1-6H8l-1 6z" stroke="#7a1f32" stroke-width="1.5"/><circle cx="12" cy="8" r="3" fill="#d4a135"/></svg>`
         },
         {
           name: "Haldi",
@@ -1369,31 +1437,31 @@
           place: "Aher Garden Lawn, Nigdi, Pune",
           dress: "Sunlit Yellow & Ivory",
           swatches: ["#f4c430", "#ffe680", "#f8f3ea"],
-          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5.5" fill="#f4c430"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#fae3a2" stroke-width="1.6" stroke-linecap="round"/></svg>`
+          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5.5" fill="#f4b942"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#b8841c" stroke-width="1.6" stroke-linecap="round"/></svg>`
         },
         {
           name: "Mehendi",
           when: "Sat, 26 Dec · 03:00 PM",
           place: "The Courtyard, Aher Garden",
           dress: "Emerald & Mint Green",
-          swatches: ["#2d6a4f", "#74c69d", "#e4c16f"],
-          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20c-5-2-7-8-4-14 2 2 3 4 4 0 1 4 2 2 4 0 3 6 1 12-4 14z" stroke="#74c69d" stroke-width="1.6" fill="rgba(116,198,157,0.2)"/></svg>`
+          swatches: ["#2d6a4f", "#74c69d", "#d4a135"],
+          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20c-5-2-7-8-4-14 2 2 3 4 4 0 1 4 2 2 4 0 3 6 1 12-4 14z" stroke="#2d6a4f" stroke-width="1.6" fill="rgba(116,198,157,0.3)"/></svg>`
         },
         {
           name: "Sangeet",
           when: "Sat, 26 Dec · 07:30 PM",
           place: "Grand Hall, Aher Garden",
           dress: "Indo-Western Glam",
-          swatches: ["#9d4edd", "#e5989b", "#e4c16f"],
-          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18V6l10-2v12" stroke="#e4c16f" stroke-width="1.6" stroke-linecap="round"/><circle cx="7" cy="18" r="2.5" fill="#e5989b"/><circle cx="17" cy="16" r="2.5" fill="#e5989b"/></svg>`
+          swatches: ["#9d4edd", "#e5989b", "#d4a135"],
+          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18V6l10-2v12" stroke="#7a1f32" stroke-width="1.6" stroke-linecap="round"/><circle cx="7" cy="18" r="2.5" fill="#b8841c"/><circle cx="17" cy="16" r="2.5" fill="#b8841c"/></svg>`
         },
         {
           name: "Baraat & Pheras",
           when: "Sun, 27 Dec · 05:22 PM",
           place: "The Mandap, Aher Garden, Pune",
           dress: "Festive Red & Gold",
-          swatches: ["#9e1c2f", "#e4c16f", "#f8f3ea"],
-          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4c3 4 4 7 0 11-4-4-3-7 0-11z" fill="#ff9f1c"/><path d="M6 20h12M8 20v-4M16 20v-4" stroke="#fae3a2" stroke-width="1.5" stroke-linecap="round"/></svg>`
+          swatches: ["#9e1c2f", "#d4a135", "#f8f3ea"],
+          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4c3 4 4 7 0 11-4-4-3-7 0-11z" fill="#e67e22"/><path d="M6 20h12M8 20v-4M16 20v-4" stroke="#7a1f32" stroke-width="1.5" stroke-linecap="round"/></svg>`
         }
       ],
       photos: [
@@ -1431,16 +1499,16 @@
           title: "Wedding Pheras & Grand Reception",
           tip: "Classic Paithani, Banarasi silks, or velvet sherwanis in rich jewel & festive tones.",
           colors: [
-            { name: "Royal Wine", hex: "#6e1f2f" },
+            { name: "Royal Wine", hex: "#7a1f32" },
             { name: "Burnished Gold", hex: "#d4af37" },
-            { name: "Deep Teal", hex: "#0d3b36" }
+            { name: "Soft Ivory", hex: "#fbf2e6" }
           ]
         }
       }
     };
 
     /* Inject Subtle Corner Filigree into every .royal-panel */
-    const filigreeSvg = `<svg viewBox="0 0 40 40" fill="none"><path d="M2 38 V14 Q2 2 14 2 H38" stroke="#e4c16f" stroke-width="1.2"/><path d="M7 30 V16 Q7 7 16 7 H30" stroke="#e4c16f" stroke-width="0.7" stroke-opacity="0.6"/><circle cx="10" cy="10" r="1.5" fill="#fae3a2"/></svg>`;
+    const filigreeSvg = `<svg viewBox="0 0 40 40" fill="none"><path d="M2 38 V14 Q2 2 14 2 H38" stroke="#b8841c" stroke-width="1.2"/><path d="M7 30 V16 Q7 7 16 7 H30" stroke="#b8841c" stroke-width="0.7" stroke-opacity="0.65"/><circle cx="10" cy="10" r="1.5" fill="#7a1f32"/></svg>`;
     document.querySelectorAll(".royal-panel").forEach((panel) => {
       ["tl", "tr", "bl", "br"].forEach((pos) => {
         const span = document.createElement("span");
@@ -1465,14 +1533,14 @@
       progressEl.style.width = h > 0 ? `${(window.scrollY / h) * 100}%` : "0%";
     }, { passive: true });
 
-    /* Starlight & Gold Dust Canvas */
+    /* Sunlit Golden Dust & Petal Canvas */
     const canvas = document.getElementById("starlight-canvas");
     const ctx = canvas.getContext("2d");
-    const stars = Array.from({ length: 48 }, () => ({
+    const stars = Array.from({ length: 34 }, () => ({
       x: Math.random(), y: Math.random(),
-      r: 0.7 + Math.random() * 1.4,
+      r: 1 + Math.random() * 1.6,
       phase: Math.random() * Math.PI * 2,
-      speed: 0.01 + Math.random() * 0.02
+      speed: 0.01 + Math.random() * 0.018
     }));
     const bursts = [];
 
@@ -1490,11 +1558,11 @@
           y: fromBottom ? canvas.height * 0.75 : -10,
           vx: (Math.random() - 0.5) * 3.6,
           vy: fromBottom ? -(2.2 + Math.random() * 4.4) : 1.4 + Math.random() * 2.4,
-          size: 3 + Math.random() * 5,
+          size: 3.5 + Math.random() * 5.5,
           rot: Math.random() * Math.PI * 2,
           vRot: (Math.random() - 0.5) * 0.1,
           gravity: fromBottom ? 0.08 : 0.012,
-          color: ["#fae3a2", "#e4c16f", "#e5989b", "#f8f3ea"][i % 4]
+          color: ["#d4a135", "#e69a8d", "#7a1f32", "#f4c430"][i % 4]
         });
       }
     }
@@ -1503,8 +1571,8 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (const s of stars) {
         s.phase += s.speed;
-        const alpha = 0.2 + 0.55 * (0.5 + 0.5 * Math.sin(s.phase));
-        ctx.fillStyle = `rgba(250, 227, 162, ${alpha})`;
+        const alpha = 0.14 + 0.35 * (0.5 + 0.5 * Math.sin(s.phase));
+        ctx.fillStyle = `rgba(184, 132, 28, ${alpha})`;
         ctx.beginPath();
         ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
         ctx.fill();
@@ -1753,7 +1821,7 @@
           <span>${c.name}</span>
         </div>`).join("");
       wardrobePanel.innerHTML = `
-        <h3 style="font-family:var(--font-serif);font-size:1.45rem;color:var(--gold-bright);margin-bottom:6px;">${w.title}</h3>
+        <h3 style="font-family:var(--font-serif);font-size:1.45rem;color:var(--wine);margin-bottom:6px;">${w.title}</h3>
         <p style="font-size:0.8rem;color:var(--muted);line-height:1.55;">${w.tip}</p>
         <div class="palette-row">${chips}</div>`;
     }
