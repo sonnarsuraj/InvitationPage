@@ -392,37 +392,42 @@
     .fixed-decor {
       position: fixed;
       pointer-events: none;
-      z-index: 15;
+      z-index: 4;
       will-change: transform;
     }
 
-    .corner-rose-tl { top: -22px; left: -26px; width: 120px; opacity: 0.85; }
-    .corner-rose-tr { top: -22px; right: -26px; width: 120px; opacity: 0.85; transform: scaleX(-1); }
-    .corner-rose-bl { bottom: -26px; left: -24px; width: 132px; opacity: 0.88; }
-    .corner-rose-br { bottom: -26px; right: -24px; width: 132px; opacity: 0.88; transform: scaleX(-1); }
+    .corner-rose-tl { top: -34px; left: -34px; width: 96px; opacity: 0.78; }
+    .corner-rose-tr { top: -34px; right: -34px; width: 96px; opacity: 0.78; transform: scaleX(-1); }
+    .corner-rose-bl { bottom: -36px; left: -34px; width: 102px; opacity: 0.82; }
+    .corner-rose-br { bottom: -36px; right: -34px; width: 102px; opacity: 0.82; transform: scaleX(-1); }
 
     .marigold-garland {
       position: fixed;
-      top: -6px;
+      top: -8px;
       left: 0;
       right: 0;
-      height: 76px;
+      height: 58px;
       pointer-events: none;
-      z-index: 16;
+      z-index: 4;
       display: flex;
       justify-content: space-between;
-      padding: 0 10px;
+      padding: 0 6px;
       opacity: 0;
       transition: opacity 0.8s ease;
     }
 
     .marigold-garland.visible {
-      opacity: 1;
+      opacity: 0.9;
+    }
+
+    .marigold-group {
+      display: flex;
+      gap: 6px;
     }
 
     .marigold-strand {
-      width: 44px;
-      height: 78px;
+      width: 34px;
+      height: 60px;
       transform-origin: top center;
       will-change: transform;
     }
@@ -483,7 +488,7 @@
       z-index: 10;
       max-width: 480px;
       margin: 0 auto;
-      padding: 0 18px 84px;
+      padding: 28px 20px 116px;
     }
 
     section {
@@ -1384,19 +1389,22 @@
     .closing-quote {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       color: var(--wine);
       line-height: 1.45;
       margin: 14px auto 10px;
-      max-width: 280px;
+      max-width: 220px;
     }
 
     .closing-families {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gold-dark);
       font-weight: 600;
+      max-width: 240px;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
     /* Toast */
@@ -1553,10 +1561,14 @@
   <img class="fixed-decor corner-rose-br" data-rose data-parallax="-0.05" alt="" />
 
   <div class="marigold-garland" id="marigold-garland">
-    <img class="marigold-strand" data-marigold alt="" />
-    <img class="marigold-strand" data-marigold alt="" />
-    <img class="marigold-strand" data-marigold alt="" />
-    <img class="marigold-strand" data-marigold alt="" />
+    <div class="marigold-group">
+      <img class="marigold-strand" data-marigold alt="" />
+      <img class="marigold-strand" data-marigold alt="" />
+    </div>
+    <div class="marigold-group">
+      <img class="marigold-strand" data-marigold alt="" />
+      <img class="marigold-strand" data-marigold alt="" />
+    </div>
   </div>
 
   <!-- Music Toggle -->
@@ -2388,9 +2400,10 @@
         requestAnimationFrame(() => {
           const sy = window.scrollY;
           parallaxEls.forEach((el) => {
-            const factor = parseFloat(el.dataset.parallax);
+            const dir = parseFloat(el.dataset.parallax) >= 0 ? 1 : -1;
+            const shift = Math.sin(sy * 0.004) * 10 * dir;
             const flip = el.classList.contains("corner-rose-tr") || el.classList.contains("corner-rose-br") ? "scaleX(-1) " : "";
-            el.style.transform = `${flip}translate3d(0, ${sy * factor}px, 0)`;
+            el.style.transform = `${flip}translate3d(0, ${shift}px, 0)`;
           });
           const sway = Math.sin(sy * 0.025) * 6;
           strands.forEach((st, i) => {
