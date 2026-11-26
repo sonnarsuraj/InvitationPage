@@ -1383,6 +1383,60 @@
       line-height: 1.5;
     }
 
+    .closing-wreath-wrap {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .closing-wreath-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .closing-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .closing-secondary-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .closing-blessing-count {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      min-height: 1.2em;
+    }
+
+    .closing-signoff {
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(212, 175, 55, 0.35);
+      max-width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.64rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
     /* Toast */
     #toast {
       position: fixed;
@@ -1773,9 +1827,40 @@
 
     <!-- 8. CLOSING -->
     <section id="closing" class="reveal">
-      <div class="closing-crest" aria-hidden="true">S &amp; A</div>
+      <div class="closing-wreath-wrap">
+        <svg class="closing-wreath-svg" viewBox="0 0 112 112" fill="none" aria-hidden="true">
+          <circle cx="56" cy="56" r="46" stroke="#d4af37" stroke-width="0.9" stroke-dasharray="3 4" stroke-opacity="0.7" />
+          <path d="M56 8 C48 16, 48 22, 56 26 C64 22, 64 16, 56 8Z" fill="#d4af37" fill-opacity="0.35" stroke="#b8860b" stroke-width="0.8" />
+          <path d="M22 86 C12 70, 12 42, 26 24" stroke="#b8860b" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M90 86 C100 70, 100 42, 86 24" stroke="#b8860b" stroke-width="1.2" stroke-linecap="round" />
+          <circle cx="18" cy="56" r="2.5" fill="#d4af37" />
+          <circle cx="94" cy="56" r="2.5" fill="#d4af37" />
+          <circle cx="22" cy="74" r="2" fill="#6e1f2f" fill-opacity="0.65" />
+          <circle cx="90" cy="74" r="2" fill="#6e1f2f" fill-opacity="0.65" />
+        </svg>
+        <div class="closing-crest" aria-hidden="true">S &amp; A</div>
+      </div>
+
       <p class="closing-quote">“We can’t wait to celebrate with you”</p>
       <div class="closing-families">With love, the Sonnar &amp; Devkate families</div>
+
+      <div class="closing-actions">
+        <button class="btn-wine-solid" id="akshata-btn" type="button">
+          ✨ Shower Blessings (Akshata)
+        </button>
+        <div class="closing-blessing-count" id="blessing-count">Tap to shower rose petals &amp; gold confetti</div>
+
+        <div class="closing-secondary-row">
+          <button class="btn-gold-outline" id="share-invite-btn" type="button">
+            Share Invite
+          </button>
+          <button class="btn-gold-outline" id="replay-book-btn" type="button">
+            ↻ Replay
+          </button>
+        </div>
+      </div>
+
+      <div class="closing-signoff">27 · 12 · 2026 · Pune</div>
     </section>
   </main>
 
@@ -2394,6 +2479,41 @@
       ]).then(() => {
         loaderBox.classList.add("fade-out");
         bookStage.classList.add("ready");
+      });
+
+      /* Closing Interactive Actions */
+      let blessings = 0;
+      document.getElementById("akshata-btn").addEventListener("click", () => {
+        blessings += 1;
+        spawnBurst(40, true);
+        spawnBurst(24, false);
+        document.getElementById("blessing-count").textContent =
+          `${blessings} ${blessings === 1 ? "blessing" : "blessings"} showered with love`;
+        showToast("Thank you for your warm blessings!");
+      });
+
+      document.getElementById("share-invite-btn").addEventListener("click", () => {
+        const shareData = {
+          title: "Sushant & Ankita — Wedding Invitation",
+          text: "You're invited to celebrate Sushant & Ankita's wedding on Sunday, 27 Dec 2026 at Aher Garden, Pune!",
+          url: window.location.href
+        };
+        if (navigator.share) {
+          navigator.share(shareData).catch(() => {});
+        } else {
+          const wa = `https://wa.me/?text=${encodeURIComponent(`${shareData.text} ${shareData.url}`)}`;
+          window.open(wa, "_blank", "noopener");
+        }
+      });
+
+      document.getElementById("replay-book-btn").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => {
+          isOpened = false;
+          weddingBook.classList.remove("opened");
+          overlay.classList.remove("hidden", "zooming");
+          document.body.classList.add("locked");
+        }, 420);
       });
     })();
   </script>
