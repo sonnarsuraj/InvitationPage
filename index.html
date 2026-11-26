@@ -1029,55 +1029,10 @@
       margin-top: 14px;
     }
 
-    /* ---------------- 11. CLOSING, BLESSINGS WALL & AKSHATA ---------------- */
+    /* ---------------- 11. CLOSING & AKSHATA ---------------- */
     #closing {
       text-align: center;
       padding-bottom: 28px;
-    }
-
-    .wishes-wall {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin: 18px 0;
-    }
-
-    .wish-pill {
-      padding: 8px 14px;
-      border-radius: 14px;
-      background: rgba(14, 36, 33, 0.85);
-      border: 1px solid rgba(228, 193, 111, 0.28);
-      font-size: 0.74rem;
-      color: var(--ivory);
-      max-width: 100%;
-    }
-
-    .wish-pill b {
-      color: var(--gold-bright);
-      font-weight: 600;
-    }
-
-    .wish-form {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 12px;
-      background: rgba(7, 20, 19, 0.82);
-      border: 1px solid rgba(228, 193, 111, 0.32);
-      color: var(--ivory);
-      font-family: var(--font-sans);
-      font-size: 0.84rem;
-      outline: none;
-    }
-
-    .form-input:focus {
-      border-color: var(--gold);
     }
 
     .blessing-box {
@@ -1374,23 +1329,12 @@
       </div>
     </section>
 
-    <!-- 11. CLOSING, BLESSINGS WALL & AKSHATA -->
+    <!-- 10. CLOSING & AKSHATA -->
     <section id="closing" class="reveal">
-      <div class="eyebrow">Blessings Wall</div>
-      <h2 class="sec-title">Leave a Wish</h2>
+      <div class="eyebrow">With Blessings</div>
       <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
 
-      <div class="wishes-wall" id="wishes-wall">
-        <div class="wish-pill"><b>Sonnar Family:</b> Wishing you a lifetime of joy!</div>
-        <div class="wish-pill"><b>Devkate Family:</b> Blessed &amp; thrilled to celebrate!</div>
-      </div>
-
-      <form class="wish-form" id="wish-form">
-        <input class="form-input" id="wish-input" type="text" placeholder="Write a short blessing for S & A…" required />
-        <button class="btn-gold" type="submit" style="padding:0 18px;flex-shrink:0;">Post</button>
-      </form>
-
-      <p style="font-family:var(--font-serif);font-style:italic;font-size:1.55rem;color:var(--gold-bright);max-width:270px;margin:18px auto 8px;line-height:1.4;">
+      <p style="font-family:var(--font-serif);font-style:italic;font-size:1.55rem;color:var(--gold-bright);max-width:270px;margin:10px auto 8px;line-height:1.4;">
         “We can’t wait to celebrate with you”
       </p>
       <div style="font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">
@@ -1830,22 +1774,7 @@
       );
     });
 
-    /* Blessings Wall & Akshata */
-    document.getElementById("wish-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.getElementById("wish-input");
-      const val = input.value.trim();
-      if (!val) return;
-      const pill = document.createElement("div");
-      pill.className = "wish-pill";
-      pill.innerHTML = `<b>Guest Wish:</b> `;
-      pill.appendChild(document.createTextNode(val));
-      document.getElementById("wishes-wall").appendChild(pill);
-      input.value = "";
-      spawnGoldBurst(30, true);
-      showToast("Blessing added to the wall!");
-    });
-
+    /* Akshata Blessings */
     let blessings = 0;
     document.getElementById("akshata-btn").addEventListener("click", () => {
       blessings += 1;
