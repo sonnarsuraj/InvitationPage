@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sushant &amp; Ankita — Wedding Invitation</title>
+  <meta name="description" content="Together with their families, Sushant &amp; Ankita invite you to celebrate their wedding on Sunday, 27 December 2026 at Aher Garden, Pune." />
+  <meta name="theme-color" content="#6e1f2f" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ivory: #fdf8f5;
+      --blush: #f7e8e3;
+      --blush-deep: #eed6ce;
+      --wine: #6e1f2f;
+      --wine-dark: #4a121e;
+      --wine-soft: #8a2c3f;
+      --gold: #d4af37;
+      --gold-light: #f0d78c;
+      --gold-dark: #a67c1e;
+      --text-dark: #3a1c22;
+      --text-muted: #7a545b;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ivory);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(247, 232, 227, 0.92), transparent 55%),
+        radial-gradient(circle at 85% 35%, rgba(212, 175, 55, 0.09), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(247, 232, 227, 0.85), transparent 60%),
+        var(--ivory);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Static Cotton-Paper Grain Overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    body.locked {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
+    /* Gold Foil Shimmer Text */
+    .foil-text {
+      background: linear-gradient(
+        115deg,
+        #d4af37 0%,
+        #fae6a8 30%,
+        #fff5d6 45%,
+        #d4af37 62%,
+        #b5871e 100%
+      );
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: foilShimmer 5.5s linear infinite;
+    }
+
+    /* ---------------- LOADER & 3D BOOK OPENING ---------------- */
+    #opening-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 45%, #fff9f6 0%, #f5e1db 65%, #ead0c7 100%);
+      transition: opacity 0.9s ease, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.9s;
+      overflow: hidden;
+      perspective: 1400px;
+    }
+
+    #opening-overlay.zooming {
+      transform: scale(1.28);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #opening-overlay.hidden {
+      visibility: hidden;
+      display: none;
+    }
+
+    .open-rose-bg {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform;
+    }
+
+    .open-rose-bg.tl { top: -30px; left: -35px; width: 170px; opacity: 0.72; }
+    .open-rose-bg.tr { top: -25px; right: -35px; width: 160px; opacity: 0.68; transform: scaleX(-1); }
+    .open-rose-bg.bl { bottom: -30px; left: -30px; width: 185px; opacity: 0.82; }
+    .open-rose-bg.br { bottom: -30px; right: -30px; width: 185px; opacity: 0.82; transform: scaleX(-1); }
+
+    #loader-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      z-index: 5;
+      transition: opacity 0.45s ease;
+    }
+
+    #loader-box.fade-out {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .spinner-ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(110, 31, 47, 0.16);
+      border-top-color: var(--wine);
+      border-right-color: var(--gold);
+      animation: spin 0.95s linear infinite;
+    }
+
+    .loader-text {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wine);
+      font-weight: 500;
+    }
+
+    /* 3D Velvet Book */
+    #book-stage {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+      z-index: 6;
+      opacity: 0;
+      transform: translateY(14px) scale(0.96);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #book-stage.ready {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .book-3d-wrap {
+      width: min(268px, 72vw);
+      height: min(382px, 52vh);
+      position: relative;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      filter: drop-shadow(0 24px 36px rgba(74, 18, 30, 0.36));
+      animation: bookFloat 4s ease-in-out infinite;
+    }
+
+    .book-3d-wrap.opened {
+      animation: none;
+    }
+
+    /* Silk Ribbon Bookmark peeking at bottom */
+    .book-ribbon {
+      position: absolute;
+      bottom: -24px;
+      left: 58%;
+      width: 18px;
+      height: 36px;
+      background: linear-gradient(180deg, #9a2f43 0%, #6e1f2f 85%);
+      border-left: 1px solid rgba(240, 215, 140, 0.45);
+      border-right: 1px solid rgba(240, 215, 140, 0.45);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .book-inside-page {
+      position: absolute;
+      inset: 4px 6px 4px 10px;
+      border-radius: 4px 12px 12px 4px;
+      background: linear-gradient(135deg, #fffdf9, #f9ece7);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      box-shadow: inset 8px 0 18px rgba(110, 31, 47, 0.12);
+    }
+
+    .book-inside-page p {
+      font-family: var(--font-display);
+      color: var(--wine);
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    .book-cover {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px 14px 14px 6px;
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      transition: transform 1.25s cubic-bezier(0.32, 0.08, 0.24, 1);
+      background:
+        radial-gradient(circle at 30% 25%, rgba(168, 52, 74, 0.45), transparent 60%),
+        linear-gradient(145deg, #7c2335 0%, #5b1725 55%, #420f1a 100%);
+      box-shadow:
+        inset 12px 0 20px rgba(0, 0, 0, 0.35),
+        inset -2px 0 4px rgba(240, 215, 140, 0.28);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    /* Blind-embossed mandala watermark on velvet */
+    .book-cover-mandala {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .book-cover::before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.55), transparent);
+    }
+
+    .book-cover-border {
+      position: absolute;
+      inset: 14px;
+      border: 1.5px solid rgba(226, 193, 102, 0.78);
+      border-radius: 3px 10px 10px 3px;
+      pointer-events: none;
+    }
+
+    .book-cover-border::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 0.75px solid rgba(226, 193, 102, 0.4);
+      border-radius: 2px 7px 7px 2px;
+    }
+
+    .book-3d-wrap.opened .book-cover {
+      transform: rotateY(-158deg);
+    }
+
+    .book-emblem {
+      width: 66px;
+      height: 66px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+      position: relative;
+      z-index: 2;
+    }
+
+    .book-title-small {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+
+    .book-title-main {
+      font-family: var(--font-display);
+      font-size: 1.62rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 1.24;
+      position: relative;
+      z-index: 2;
+    }
+
+    .book-subtitle {
+      margin-top: 10px;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(249, 232, 178, 0.85);
+      position: relative;
+      z-index: 2;
+    }
+
+    .tap-prompt {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      color: var(--wine);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(110, 31, 47, 0.12);
+      animation: pulseSoft 2s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    .tap-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--wine);
+      box-shadow: 0 0 0 4px rgba(110, 31, 47, 0.18);
+    }
+
+    /* ---------------- AMBIENT DECORATIONS & PARTICLES ---------------- */
+    #petal-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 40;
+    }
+
+    .fixed-decor {
+      position: fixed;
+      pointer-events: none;
+      z-index: 4;
+      will-change: transform;
+    }
+
+    .corner-rose-tl { top: -34px; left: -34px; width: 96px; opacity: 0.78; }
+    .corner-rose-tr { top: -34px; right: -34px; width: 96px; opacity: 0.78; transform: scaleX(-1); }
+    .corner-rose-bl { bottom: -36px; left: -34px; width: 102px; opacity: 0.82; }
+    .corner-rose-br { bottom: -36px; right: -34px; width: 102px; opacity: 0.82; transform: scaleX(-1); }
+
+    .marigold-garland {
+      position: fixed;
+      top: -8px;
+      left: 0;
+      right: 0;
+      height: 58px;
+      pointer-events: none;
+      z-index: 4;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 6px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .marigold-garland.visible {
+      opacity: 0.9;
+    }
+
+    .marigold-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .marigold-strand {
+      width: 34px;
+      height: 60px;
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    /* Music Button */
+    #music-btn {
+      position: fixed;
+      bottom: 18px;
+      right: 16px;
+      z-index: 60;
+      display: none;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(110, 31, 47, 0.92);
+      color: #f9e8b2;
+      border: 1px solid rgba(212, 175, 55, 0.65);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(74, 18, 30, 0.28);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease;
+    }
+
+    #music-btn.visible {
+      display: inline-flex;
+    }
+
+    #music-btn:active {
+      transform: scale(0.95);
+    }
+
+    .music-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .music-bars span {
+      width: 2.5px;
+      background: var(--gold-light);
+      border-radius: 2px;
+      height: 4px;
+    }
+
+    #music-btn.playing .music-bars span:nth-child(1) { animation: eq 0.7s ease-in-out infinite alternate; }
+    #music-btn.playing .music-bars span:nth-child(2) { animation: eq 0.55s 0.15s ease-in-out infinite alternate; }
+    #music-btn.playing .music-bars span:nth-child(3) { animation: eq 0.8s 0.3s ease-in-out infinite alternate; }
+
+    /* ---------------- MAIN CONTINUOUS PAGE ---------------- */
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 28px 20px 116px;
+    }
+
+    section {
+      position: relative;
+      padding: 44px 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--wine);
+      text-align: center;
+      line-height: 1.18;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.55;
+      max-width: 330px;
+      margin: 0 auto 24px;
+    }
+
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 6px auto 12px;
+      width: 140px;
+    }
+
+    .ornament-divider::before,
+    .ornament-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
+    }
+
+    /* ---------------- 2. FIRST PAGE (100dvh, Jharokha Arch + Mundavalya) ---------------- */
+    #hero {
+      min-height: 100dvh;
+      padding: 24px 0 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .arch-frame {
+      position: relative;
+      width: min(326px, 88vw);
+      padding: 46px 22px 28px;
+      border-radius: 170px 170px 26px 26px;
+      border: 1.5px solid rgba(212, 175, 55, 0.72);
+      background: rgba(255, 252, 249, 0.76);
+      box-shadow:
+        0 20px 44px rgba(110, 31, 47, 0.08),
+        inset 0 0 0 5px rgba(255, 255, 255, 0.65);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .jharokha-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .arch-bg-photo {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) saturate(1.05);
+      opacity: 0.22;
+      transform: scale(1.04);
+      animation: slowZoom 18s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .arch-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .ganesh-medallion {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 250, 235, 0.98), rgba(244, 224, 172, 0.75));
+      border: 1px solid rgba(212, 175, 55, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+    }
+
+    .together-line {
+      font-size: 0.64rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .typed-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 8.5vw, 2.75rem);
+      font-weight: 600;
+      color: var(--wine);
+      line-height: 1.12;
+      min-height: 1.18em;
+    }
+
+    .typed-letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(5px);
+      animation: letterIn 0.35s ease forwards;
+    }
+
+    .parent-line {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.4;
+      max-width: 260px;
+    }
+
+    .amp-symbol {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.75rem;
+      color: var(--gold-dark);
+      margin: 8px 0 6px;
+    }
+
+    .invite-line {
+      margin-top: 14px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.45;
+      max-width: 240px;
+    }
+
+    .scroll-cue {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--wine);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      animation: bounceDown 1.8s ease-in-out infinite;
+    }
+
+    /* ---------------- 3. SAVE THE DATE — PULL TO REVEAL ---------------- */
+    #save-the-date {
+      text-align: center;
+    }
+
+    .scroll-widget {
+      position: relative;
+      width: min(330px, 90vw);
+      margin: 0 auto;
+      padding-top: 10px;
+      user-select: none;
+      touch-action: pan-x;
+    }
+
+    .golden-rod {
+      position: relative;
+      height: 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f3dc92 0%, #c99d2c 55%, #8f6814 100%);
+      box-shadow: 0 4px 12px rgba(110, 31, 47, 0.2);
+      z-index: 4;
+    }
+
+    .golden-rod::before,
+    .golden-rod::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff0ba, #b8860b);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .golden-rod::before { left: -8px; }
+    .golden-rod::after { right: -8px; }
+
+    .scroll-paper {
+      position: relative;
+      width: 88%;
+      margin: -4px auto 0;
+      background: linear-gradient(180deg, #fffdf9 0%, #fbf0ea 100%);
+      border-left: 1.5px solid rgba(212, 175, 55, 0.7);
+      border-right: 1.5px solid rgba(212, 175, 55, 0.7);
+      border-bottom: 1.5px solid rgba(212, 175, 55, 0.7);
+      border-radius: 0 0 14px 14px;
+      max-height: 48px;
+      overflow: hidden;
+      transition: max-height 0.9s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+      box-shadow: 0 10px 24px rgba(110, 31, 47, 0.08);
+    }
+
+    .scroll-widget.unrolled .scroll-paper {
+      max-height: 360px;
+      box-shadow: 0 18px 36px rgba(110, 31, 47, 0.14);
+    }
+
+    .scroll-inner {
+      padding: 26px 20px 28px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s;
+    }
+
+    .scroll-widget.unrolled .scroll-inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-inner-border {
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      border-radius: 10px;
+      padding: 20px 14px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.62);
+      overflow: hidden;
+    }
+
+    .scroll-monogram-wm {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 4.5rem;
+      color: rgba(212, 175, 55, 0.12);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .scroll-day {
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .scroll-date-num {
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      font-weight: 700;
+      color: var(--wine);
+      line-height: 1.05;
+      margin: 4px 0 2px;
+      position: relative;
+    }
+
+    .scroll-month-year {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--wine);
+      font-style: italic;
+      position: relative;
+    }
+
+    .scroll-muhurat {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      position: relative;
+    }
+
+    .tassel-handle {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -2px;
+      cursor: grab;
+      z-index: 5;
+      touch-action: none;
+    }
+
+    .tassel-cord {
+      width: 3px;
+      height: 30px;
+      background: linear-gradient(to bottom, var(--gold-dark), var(--wine));
+    }
+
+    .tassel-knot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #f3d98b, #b6871d);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .tassel-skirt {
+      width: 24px;
+      height: 38px;
+      background: repeating-linear-gradient(
+        90deg,
+        #6e1f2f 0px,
+        #6e1f2f 3px,
+        #963246 3px,
+        #963246 5px
+      );
+      clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 6px 14px rgba(110, 31, 47, 0.26);
+      animation: tasselSway 2.4s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    .drag-hint {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--wine);
+      font-weight: 500;
+      transition: opacity 0.4s ease;
+    }
+
+    .finger-anim {
+      display: inline-block;
+      animation: fingerPull 1.6s ease-in-out infinite;
+    }
+
+    .scroll-widget.unrolled .drag-hint {
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    /* Countdown */
+    .countdown-line {
+      margin: 22px auto 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      box-shadow: 0 8px 20px rgba(110, 31, 47, 0.06);
+      font-size: 0.8rem;
+      color: var(--wine);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .countdown-line span b {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin-right: 2px;
+    }
+
+    .countdown-sep {
+      color: var(--gold-dark);
+      opacity: 0.7;
+    }
+
+    .btn-gold-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1.5px solid var(--wine);
+      background: transparent;
+      color: var(--wine);
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    }
+
+    .btn-gold-outline:active {
+      transform: scale(0.97);
+      background: var(--wine);
+      color: var(--ivory);
+    }
+
+    .btn-wine-solid {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
+      color: #f9e8b2;
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(110, 31, 47, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-wine-solid:active {
+      transform: scale(0.97);
+    }
+
+    /* ---------------- 4. 3D CAROUSEL (FESTIVITIES & OUR STORY) ---------------- */
+    .carousel-3d-shell {
+      position: relative;
+      width: 100%;
+      height: 390px;
+      perspective: 1100px;
+      overflow: hidden;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .carousel-3d-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-card {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      width: min(262px, 72vw);
+      height: 350px;
+      margin-left: calc(min(262px, 72vw) / -2);
+      border-radius: 22px;
+      transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.52s ease, filter 0.52s ease;
+      will-change: transform, opacity;
+      overflow: hidden;
+      box-shadow: 0 18px 36px rgba(74, 18, 30, 0.16);
+      background: #fffcf9;
+      border: 1px solid rgba(212, 175, 55, 0.55);
+    }
+
+    .carousel-card[data-pos="center"] {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 1;
+      z-index: 5;
+      filter: none;
+    }
+
+    .carousel-card[data-pos="left"] {
+      transform: translate3d(-66%, 12px, -90px) scale(0.84) rotateY(10deg);
+      opacity: 0.65;
+      z-index: 3;
+      filter: blur(2.5px);
+      cursor: pointer;
+    }
+
+    .carousel-card[data-pos="right"] {
+      transform: translate3d(66%, 12px, -90px) scale(0.84) rotateY(-10deg);
+      opacity: 0.65;
+      z-index: 3;
+      filter: blur(2.5px);
+      cursor: pointer;
+    }
+
+    .carousel-card[data-pos="hidden"] {
+      transform: translate3d(0, 20px, -180px) scale(0.7);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Event card internals */
+    .event-scene {
+      position: relative;
+      height: 142px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .event-scene-art {
+      position: absolute;
+      inset: -8px;
+      opacity: 0.92;
+    }
+
+    .event-icon-badge {
+      position: relative;
+      z-index: 2;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(255, 252, 249, 0.94);
+      border: 1.5px solid rgba(212, 175, 55, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+      animation: iconFloat 2.8s ease-in-out infinite;
+    }
+
+    .event-body {
+      padding: 16px 18px 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: calc(100% - 142px);
+      justify-content: space-between;
+    }
+
+    .event-when {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    .event-name {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      color: var(--wine);
+      font-weight: 600;
+      margin: 4px 0 6px;
+    }
+
+    .event-place {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .dress-row {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(247, 232, 227, 0.65);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.74rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      align-self: center;
+    }
+
+    .dress-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    /* Carousel controls & dots */
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .nav-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--wine);
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(110, 31, 47, 0.22);
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      width: 20px;
+      background: var(--wine);
+    }
+
+    /* ---------------- 5. OUR STORY PHOTO CAROUSEL (Centre-Focus Colour Bloom) ---------------- */
+    .story-card {
+      padding: 10px 10px 14px;
+      display: flex;
+      flex-direction: column;
+      background: #fffcf9;
+    }
+
+    .story-photo-wrap {
+      flex: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(145deg, #f3ded7, #e6c5ba);
+    }
+
+    .story-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.55s ease, transform 0.6s ease;
+    }
+
+    .story-card:not([data-pos="center"]) .story-photo-wrap img {
+      filter: sepia(0.35) saturate(0.8);
+    }
+
+    .story-card[data-pos="center"] .story-photo-wrap img {
+      filter: sepia(0) saturate(1.06);
+      transform: scale(1.02);
+    }
+
+    .story-caption {
+      padding-top: 10px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.94rem;
+      color: var(--wine);
+      text-align: center;
+    }
+
+    /* ---------------- 6. GRAND RECEPTION CARD (Paithani Lotus Filigree + Foil) ---------------- */
+    .reception-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 40px 24px;
+      text-align: center;
+      color: #f9e8b2;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(160, 48, 70, 0.45), transparent 55%),
+        linear-gradient(155deg, #742031 0%, #551422 55%, #3d0c16 100%);
+      border: 1.5px solid rgba(212, 175, 55, 0.7);
+      box-shadow: 0 22px 44px rgba(74, 18, 30, 0.28);
+      overflow: hidden;
+    }
+
+    .reception-card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 0.75px solid rgba(212, 175, 55, 0.4);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .paithani-lotus-top {
+      width: 64px;
+      height: 26px;
+      margin: 0 auto 10px;
+      opacity: 0.9;
+    }
+
+    .reception-flower-tl,
+    .reception-flower-br {
+      position: absolute;
+      width: 105px;
+      opacity: 0.85;
+      pointer-events: none;
+      animation: bloomPulse 5s ease-in-out infinite alternate;
+    }
+
+    .reception-flower-tl { top: -18px; left: -18px; }
+    .reception-flower-br { bottom: -18px; right: -18px; transform: rotate(180deg); }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff3c4;
+      box-shadow: 0 0 10px #f5d76e;
+      animation: twinkle 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .reception-eyebrow {
+      font-size: 0.66rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(249, 232, 178, 0.82);
+      margin-bottom: 8px;
+    }
+
+    .reception-title {
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      margin-bottom: 14px;
+    }
+
+    .reception-details {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: rgba(255, 244, 224, 0.92);
+    }
+
+    .reception-dress {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f9e8b2;
+    }
+
+    /* ---------------- 7. PARCHMENT LOCATION CARD ---------------- */
+    .map-card {
+      border-radius: 22px;
+      background: rgba(255, 252, 249, 0.92);
+      border: 1.5px solid rgba(212, 175, 55, 0.55);
+      padding: 18px;
+      box-shadow: 0 16px 34px rgba(110, 31, 47, 0.09);
+      text-align: center;
+    }
+
+    .illustrated-map {
+      display: block;
+      position: relative;
+      height: 174px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f5ebe4;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      margin-bottom: 16px;
+      text-decoration: none;
+    }
+
+    .illustrated-map svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .route-path {
+      stroke-dasharray: 240;
+      stroke-dashoffset: 240;
+      animation: drawRoute 3.2s ease-in-out infinite;
+    }
+
+    .map-pin-group {
+      animation: pinBounce 1.8s ease-in-out infinite;
+      transform-origin: 215px 68px;
+    }
+
+    .map-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 252, 249, 0.95);
+      border: 1px solid rgba(212, 175, 55, 0.65);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--wine);
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .venue-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--wine);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .venue-address {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: 310px;
+      margin: 0 auto 18px;
+    }
+
+    .location-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ---------------- 8. CLOSING ---------------- */
+    #closing {
+      text-align: center;
+      padding: 36px 0 28px;
+    }
+
+    .closing-crest {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: 1.5px solid rgba(212, 175, 55, 0.78);
+      background: radial-gradient(circle, #fffaf0, #f5e2c0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--wine);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.22);
+    }
+
+    .closing-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--wine);
+      line-height: 1.45;
+      margin: 14px auto 10px;
+      max-width: 220px;
+    }
+
+    .closing-families {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      max-width: 240px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 72px;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--wine-dark);
+      color: #f9e8b2;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ---------------- KEYFRAMES ---------------- */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes foilShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 220% 50%; }
+    }
+    @keyframes bookFloat {
+      0%, 100% { transform: translateY(0) rotateZ(-0.5deg); }
+      50% { transform: translateY(-7px) rotateZ(0.5deg); }
+    }
+    @keyframes pulseSoft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    @keyframes slowZoom {
+      0% { transform: scale(1.02); }
+      100% { transform: scale(1.14); }
+    }
+    @keyframes letterIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @keyframes tasselSway {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    @keyframes fingerPull {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes bloomPulse {
+      0% { transform: scale(0.95); }
+      100% { transform: scale(1.05); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.75); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    @keyframes drawRoute {
+      0% { stroke-dashoffset: 240; }
+      65%, 100% { stroke-dashoffset: 0; }
+    }
+    @keyframes pinBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes eq {
+      0% { height: 3px; }
+      100% { height: 12px; }
+    }
+
+    /* Pause off-screen animations for mobile battery efficiency */
+    .anim-paused * {
+      animation-play-state: paused !important;
+    }
+  </style>
+</head>
+<body class="locked">
+
+  <!-- Background Audio (put your song.mp3 next to index.html) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- 1. OPENING OVERLAY: LOADER + 3D VELVET BOOK -->
+  <div id="opening-overlay" aria-label="Wedding Invitation Cover">
+    <img class="open-rose-bg tl" data-rose alt="" />
+    <img class="open-rose-bg tr" data-rose alt="" />
+    <img class="open-rose-bg bl" data-rose alt="" />
+    <img class="open-rose-bg br" data-rose alt="" />
+
+    <div id="loader-box">
+      <div class="spinner-ring"></div>
+      <div class="loader-text">Preparing Invitation…</div>
+    </div>
+
+    <div id="book-stage">
+      <div class="book-3d-wrap" id="wedding-book" role="button" tabindex="0" aria-label="Tap the book to open">
+        <div class="book-ribbon" aria-hidden="true"></div>
+        <div class="book-inside-page">
+          <p>Shubh Vivaah</p>
+        </div>
+        <div class="book-cover">
+          <!-- Blind-embossed Mandala -->
+          <svg class="book-cover-mandala" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" stroke="#f0d78c" stroke-width="1.5" stroke-dasharray="4 4" />
+            <circle cx="100" cy="100" r="64" stroke="#f0d78c" stroke-width="1.2" />
+            <circle cx="100" cy="100" r="38" stroke="#f0d78c" stroke-width="1" />
+            <path d="M100 12v176M12 100h176M38 38l124 124M162 38L38 162" stroke="#f0d78c" stroke-width="0.9" />
+          </svg>
+          <div class="book-cover-border"></div>
+
+          <!-- Gold Ganesh ji Emblem -->
+          <svg class="book-emblem" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="40" r="35" stroke="#e6c875" stroke-width="1.2" stroke-dasharray="3 3" />
+            <path d="M40 16c-5.5 0-10 4-10 9.5 0 2.7 1.2 5 3.1 6.7-3.8 2.2-6.1 6-6.1 10.3 0 6.8 5.2 12.2 12.2 12.7 2.8.2 5.7-.6 7.5-2.1 1.6-1.3 2.5-3.3 2.1-5.1-.4-1.8-2.2-2.7-3.8-2.2-1.4.4-2.1 1.7-1.6 3 .2.5.1 1-.3 1.3-.9.7-2.4.9-3.9.6-4-.7-6.6-3.9-6.6-7.9 0-3.2 1.8-6 4.7-7.4 1-.5 2.4-.7 3.7-.7 1.3 0 2.5.3 3.4.9 1.6 1 2.7 2.7 2.9 4.5.2 1.8-.6 3.5-2.1 4.5-.8.5-1 1.6-.4 2.3.5.7 1.5.9 2.3.4 2.8-1.8 4.4-4.9 4.1-8.2-.4-4.2-3.4-7.6-7.3-8.6 1.7-1.6 2.8-3.8 2.8-6.3 0-5.4-4.5-9.2-10-9.2z" fill="#f0d78c" />
+            <circle cx="40" cy="11" r="2.2" fill="#f0d78c" />
+            <path d="M23 37c-3.5-1.2-6.5 1-6.5 4.2 0 2.6 2.1 4.7 4.7 4.7 1.3 0 2.5-.5 3.3-1.4M57 37c3.5-1.2 6.5 1 6.5 4.2 0 2.6-2.1 4.7-4.7 4.7-1.3 0-2.5-.5-3.3-1.4" stroke="#f0d78c" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <div class="book-title-small">Shubh Vivaah</div>
+          <div class="book-title-main foil-text">Sushant<br />&amp;<br />Ankita</div>
+          <div class="book-subtitle">27 December 2026</div>
+        </div>
+      </div>
+
+      <div class="tap-prompt" id="tap-prompt-btn">
+        <span class="tap-dot"></span>
+        Tap the book to open
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Petal Canvas -->
+  <canvas id="petal-canvas"></canvas>
+
+  <!-- Fixed Parallax Corner Roses & Swinging Marigold Strings -->
+  <img class="fixed-decor corner-rose-tl" data-rose data-parallax="0.06" alt="" />
+  <img class="fixed-decor corner-rose-tr" data-rose data-parallax="0.06" alt="" />
+  <img class="fixed-decor corner-rose-bl" data-rose data-parallax="-0.05" alt="" />
+  <img class="fixed-decor corner-rose-br" data-rose data-parallax="-0.05" alt="" />
+
+  <div class="marigold-garland" id="marigold-garland">
+    <div class="marigold-group">
+      <img class="marigold-strand" data-marigold alt="" />
+      <img class="marigold-strand" data-marigold alt="" />
+    </div>
+    <div class="marigold-group">
+      <img class="marigold-strand" data-marigold alt="" />
+      <img class="marigold-strand" data-marigold alt="" />
+    </div>
+  </div>
+
+  <!-- Music Toggle -->
+  <button id="music-btn" type="button" aria-label="Toggle wedding music">
+    <span class="music-bars"><span></span><span></span><span></span></span>
+    <span id="music-label">Play Music</span>
+  </button>
+
+  <main>
+    <!-- 2. FIRST PAGE (100dvh, Jharokha Arch + Mundavalya) -->
+    <section id="hero">
+      <div class="arch-frame">
+        <div class="arch-bg-photo" id="hero-arch-bg"></div>
+
+        <!-- Scalloped Jharokha Arch & Mundavalya Pearls -->
+        <svg class="jharokha-svg" viewBox="0 0 326 120" fill="none" aria-hidden="true">
+          <path d="M18 115 C 18 52, 74 14, 163 14 C 252 14, 308 52, 308 115" stroke="#d4af37" stroke-width="1.1" stroke-opacity="0.7" />
+          <path d="M44 76 Q 74 44 108 38 Q 135 20 163 18 Q 191 20 218 38 Q 252 44 282 76" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 3" stroke-opacity="0.75" />
+          <!-- Mundavalya Pearl Drops -->
+          <circle cx="88" cy="46" r="2.2" fill="#f7e8d0" stroke="#d4af37" stroke-width="0.8" />
+          <circle cx="114" cy="34" r="2.2" fill="#f7e8d0" stroke="#d4af37" stroke-width="0.8" />
+          <circle cx="138" cy="24" r="2.2" fill="#f7e8d0" stroke="#d4af37" stroke-width="0.8" />
+          <circle cx="163" cy="20" r="2.8" fill="#fae6a8" stroke="#b8860b" stroke-width="0.9" />
+          <circle cx="188" cy="24" r="2.2" fill="#f7e8d0" stroke="#d4af37" stroke-width="0.8" />
+          <circle cx="212" cy="34" r="2.2" fill="#f7e8d0" stroke="#d4af37" stroke-width="0.8" />
+          <circle cx="238" cy="46" r="2.2" fill="#f7e8d0" stroke="#d4af37" stroke-width="0.8" />
+        </svg>
+
+        <div class="arch-content">
+          <div class="ganesh-medallion" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 80 80" fill="none">
+              <path d="M40 16c-5.5 0-10 4-10 9.5 0 2.7 1.2 5 3.1 6.7-3.8 2.2-6.1 6-6.1 10.3 0 6.8 5.2 12.2 12.2 12.7 2.8.2 5.7-.6 7.5-2.1 1.6-1.3 2.5-3.3 2.1-5.1-.4-1.8-2.2-2.7-3.8-2.2-1.4.4-2.1 1.7-1.6 3 .2.5.1 1-.3 1.3-.9.7-2.4.9-3.9.6-4-.7-6.6-3.9-6.6-7.9 0-3.2 1.8-6 4.7-7.4 1-.5 2.4-.7 3.7-.7 1.3 0 2.5.3 3.4.9 1.6 1 2.7 2.7 2.9 4.5.2 1.8-.6 3.5-2.1 4.5-.8.5-1 1.6-.4 2.3.5.7 1.5.9 2.3.4 2.8-1.8 4.4-4.9 4.1-8.2-.4-4.2-3.4-7.6-7.3-8.6 1.7-1.6 2.8-3.8 2.8-6.3 0-5.4-4.5-9.2-10-9.2z" fill="#6e1f2f" />
+            </svg>
+          </div>
+          <div class="together-line">Together with their families</div>
+
+          <h1 class="typed-name" id="groom-name">Sushant</h1>
+          <p class="parent-line">Sushant Santram Sonnar<br />Son of Santram &amp; Joshana</p>
+
+          <div class="amp-symbol">&amp;</div>
+
+          <h2 class="typed-name" id="bride-name">Ankita</h2>
+          <p class="parent-line">Ankita Devidas Devkate<br />Daughter of Devidas &amp; Avida</p>
+
+          <div class="ornament-divider" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#d4af37"/></svg>
+          </div>
+
+          <p class="invite-line">Request the honour of your presence as we unite in love &amp; blessings</p>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- 3. SAVE THE DATE — PULL TO REVEAL -->
+    <section id="save-the-date" class="reveal">
+      <div class="eyebrow">Save the Date</div>
+      <h2 class="section-heading">Pull to Reveal</h2>
+
+      <div class="scroll-widget" id="scroll-widget">
+        <div class="golden-rod"></div>
+        <div class="scroll-paper">
+          <div class="scroll-inner">
+            <div class="scroll-inner-border">
+              <div class="scroll-monogram-wm" aria-hidden="true">S &amp; A</div>
+              <div class="scroll-day">Sunday</div>
+              <div class="scroll-date-num">27</div>
+              <div class="scroll-month-year">December 2026</div>
+              <p class="scroll-muhurat">
+                Muhurat &amp; Pheras at <strong>05:22 PM</strong><br />
+                Aher Garden, Nigdi, Pune
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tassel-handle" id="tassel-handle" role="button" tabindex="0" aria-label="Pull or tap tassel to reveal wedding date">
+          <div class="tassel-cord"></div>
+          <div class="tassel-knot"></div>
+          <div class="tassel-skirt"></div>
+        </div>
+        <div class="drag-hint">
+          <span class="finger-anim">👇</span>
+          <span>Drag or tap the tassel</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="countdown-line" id="countdown-line">
+          <span><b id="cd-days">00</b> days</span>
+          <span class="countdown-sep">·</span>
+          <span><b id="cd-hrs">00</b> hrs</span>
+          <span class="countdown-sep">·</span>
+          <span><b id="cd-min">00</b> min</span>
+          <span class="countdown-sep">·</span>
+          <span><b id="cd-sec">00</b> sec</span>
+        </div>
+      </div>
+
+      <button class="btn-gold-outline" id="add-calendar-btn" type="button">
+        <span>📅</span> Add to Calendar
+      </button>
+    </section>
+
+    <!-- 4. WEDDING FESTIVITIES — SWIPEABLE 3D CAROUSEL -->
+    <section id="festivities" class="reveal">
+      <div class="eyebrow">Celebrations</div>
+      <h2 class="section-heading">Wedding Festivities</h2>
+      <p class="section-sub">Swipe through each ceremony &amp; dress code</p>
+
+      <div class="carousel-3d-shell" id="events-carousel">
+        <div class="carousel-3d-track" id="events-track"></div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="nav-arrow" id="events-prev" type="button" aria-label="Previous event">‹</button>
+        <div class="carousel-dots" id="events-dots"></div>
+        <button class="nav-arrow" id="events-next" type="button" aria-label="Next event">›</button>
+      </div>
+    </section>
+
+    <!-- 5. OUR STORY — SWIPEABLE 3D PHOTO CAROUSEL -->
+    <section id="our-story" class="reveal">
+      <div class="eyebrow">Moments</div>
+      <h2 class="section-heading">Our Story</h2>
+      <p class="section-sub">Swipe through our favourite memories together</p>
+
+      <div class="carousel-3d-shell" id="story-carousel">
+        <div class="carousel-3d-track" id="story-track"></div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="nav-arrow" id="story-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="carousel-dots" id="story-dots"></div>
+        <button class="nav-arrow" id="story-next" type="button" aria-label="Next photo">›</button>
+      </div>
+    </section>
+
+    <!-- 6. GRAND RECEPTION -->
+    <section id="reception" class="reveal">
+      <div class="reception-card">
+        <img class="reception-flower-tl" data-rose alt="" />
+        <img class="reception-flower-br" data-rose alt="" />
+        <span class="sparkle" style="top:18%;left:16%;animation-delay:0s;"></span>
+        <span class="sparkle" style="top:24%;right:18%;animation-delay:0.8s;"></span>
+        <span class="sparkle" style="bottom:22%;left:22%;animation-delay:1.4s;"></span>
+        <span class="sparkle" style="bottom:18%;right:20%;animation-delay:0.4s;"></span>
+
+        <!-- Paithani Lotus Filigree -->
+        <svg class="paithani-lotus-top" viewBox="0 0 80 32" fill="none" aria-hidden="true">
+          <path d="M40 4 C34 14, 34 22, 40 28 C46 22, 46 14, 40 4Z" fill="#f0d78c" fill-opacity="0.85"/>
+          <path d="M36 26 C26 24, 22 16, 26 10 C32 14, 35 20, 36 26Z" fill="#d4af37" fill-opacity="0.7"/>
+          <path d="M44 26 C54 24, 58 16, 54 10 C48 14, 45 20, 44 26Z" fill="#d4af37" fill-opacity="0.7"/>
+          <path d="M10 26 Q24 22 34 27 M46 27 Q56 22 70 26" stroke="#f0d78c" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+
+        <div class="reception-eyebrow">You are invited to the</div>
+        <h2 class="reception-title foil-text">Grand Reception</h2>
+        <p class="reception-details">
+          <strong>Sunday, 27 December 2026</strong><br />
+          7:30 PM onwards · Dinner &amp; Celebrations<br />
+          Aher Garden, Nigdi, Pune
+        </p>
+        <div class="reception-dress">Dress Code: Festive &amp; Ethnic</div>
+      </div>
+    </section>
+
+    <!-- 7. LOCATION — HOW TO REACH (Parchment Route Map) -->
+    <section id="location" class="reveal">
+      <div class="eyebrow">Location</div>
+      <h2 class="section-heading">How to Reach</h2>
+
+      <div class="map-card">
+        <a class="illustrated-map" href="https://maps.app.goo.gl/ZywfxQpe42gLpZCR8" target="_blank" rel="noopener noreferrer" aria-label="Open Aher Garden on Google Maps">
+          <svg viewBox="0 0 320 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="174" fill="#faf2ea" />
+            <!-- Fine Gold Contour Lines -->
+            <path d="M-20 45 Q 90 10, 180 48 T 340 35" stroke="#d4af37" stroke-opacity="0.22" stroke-width="1" />
+            <path d="M-20 118 Q 110 86, 210 124 T 340 105" stroke="#d4af37" stroke-opacity="0.22" stroke-width="1" />
+            <!-- Soft map blocks -->
+            <rect x="14" y="18" width="76" height="48" rx="10" fill="#efe2d7" stroke="#d4af37" stroke-opacity="0.3" />
+            <rect x="112" y="14" width="84" height="52" rx="10" fill="#e8d8cc" stroke="#d4af37" stroke-opacity="0.3" />
+            <rect x="220" y="20" width="82" height="54" rx="10" fill="#efe2d7" stroke="#d4af37" stroke-opacity="0.3" />
+            <rect x="22" y="88" width="94" height="58" rx="10" fill="#e8d8cc" stroke="#d4af37" stroke-opacity="0.3" />
+            <rect x="140" y="92" width="160" height="54" rx="10" fill="#efe2d7" stroke="#d4af37" stroke-opacity="0.3" />
+            <!-- Roads -->
+            <path d="M0 78H320M102 0V174M206 0V174" stroke="#ffffff" stroke-width="10" />
+            <!-- Compass Rose -->
+            <g transform="translate(36, 36)" opacity="0.55">
+              <circle cx="0" cy="0" r="12" stroke="#a67c1e" stroke-width="0.8" />
+              <path d="M0 -10 L2 0 L0 10 L-2 0 Z M-10 0 L0 -2 L10 0 L0 2 Z" fill="#a67c1e" />
+            </g>
+            <!-- Animated Route -->
+            <path class="route-path" d="M46 132 C 88 132, 102 78, 154 78 C 192 78, 206 68, 215 68" stroke="#6e1f2f" stroke-width="3.5" stroke-linecap="round" />
+            <circle cx="46" cy="132" r="5" fill="#d4af37" stroke="#ffffff" stroke-width="2" />
+            <!-- Pulsing Venue Pin -->
+            <g class="map-pin-group">
+              <circle cx="215" cy="68" r="18" fill="rgba(110, 31, 47, 0.16)" />
+              <path d="M215 34c-9.5 0-17 7.4-17 16.6 0 11.8 17 26.4 17 26.4s17-14.6 17-26.4C232 41.4 224.5 34 215 34z" fill="#6e1f2f" stroke="#f0d78c" stroke-width="2" />
+              <circle cx="215" cy="50" r="5.5" fill="#f0d78c" />
+            </g>
+          </svg>
+          <span class="map-badge">Tap to open in Google Maps</span>
+        </a>
+
+        <div class="venue-name">Aher Garden</div>
+        <p class="venue-address" id="venue-address-text">
+          Aher Garden, Atharv Park Society, Chinchwad, Aher Estate Rd, Walhekarwadi, Sector No. 30, Nigdi, Pune, Maharashtra 411033
+        </p>
+
+        <div class="location-actions">
+          <a class="btn-wine-solid" href="https://maps.app.goo.gl/ZywfxQpe42gLpZCR8" target="_blank" rel="noopener noreferrer">
+            Get Directions
+          </a>
+          <button class="btn-gold-outline" id="copy-address-btn" type="button">
+            Copy Address
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CLOSING -->
+    <section id="closing" class="reveal">
+      <div class="closing-crest" aria-hidden="true">S &amp; A</div>
+      <p class="closing-quote">“We can’t wait to celebrate with you”</p>
+      <div class="closing-families">With love, the Sonnar &amp; Devkate families</div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* =========================================================================
+       EASY CUSTOMIZATION CONFIG — Update functions, photos, and captions here
+       ========================================================================= */
+    const EVENT_SVGS = {
+      haldi: `<svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+        <ellipse cx="18" cy="24" rx="13" ry="5" fill="#f0d78c" stroke="#a67c1e" stroke-width="1.3"/>
+        <ellipse cx="18" cy="22" rx="9" ry="3.2" fill="#f3c623"/>
+        <circle cx="14" cy="14" r="3.5" fill="#ff9f1c"/>
+        <circle cx="22" cy="13" r="3" fill="#ffd166"/>
+        <path d="M18 7c1.5 2.5 1.5 5 0 7-1.5-2-1.5-4.5 0-7z" fill="#6e1f2f"/>
+      </svg>`,
+      mehendi: `<svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+        <path d="M18 29 C11 26, 9 18, 12 10 C15 13, 17 15, 18 8 C19 15, 21 13, 24 10 C27 18, 25 26, 18 29Z" fill="#e8f5ec" stroke="#2f7a4b" stroke-width="1.4"/>
+        <circle cx="18" cy="20" r="3" fill="#2f7a4b" fill-opacity="0.75"/>
+        <path d="M18 14v3M14 19l2 1M22 19l-2 1" stroke="#2f7a4b" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>`,
+      sangeet: `<svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+        <rect x="8" y="14" width="20" height="11" rx="5" fill="#9d4edd" fill-opacity="0.25" stroke="#6e1f2f" stroke-width="1.4"/>
+        <path d="M12 14v11M24 14v11M12 16l12 7M24 16l-12 7" stroke="#d4af37" stroke-width="1.2"/>
+        <path d="M23 9v5M23 9l4-1v4" stroke="#6e1f2f" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>`,
+      pheras: `<svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+        <path d="M8 28h20M11 28V14M25 28V14M7 14l11-7 11 7" stroke="#6e1f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 16c2.8 3.2 3.2 6.5 0 9-3.2-2.5-2.8-5.8 0-9z" fill="#f3722c"/>
+        <path d="M18 19c1.4 1.6 1.6 3.5 0 5-1.6-1.5-1.4-3.4 0-5z" fill="#ffd166"/>
+      </svg>`
+    };
+
+    const CONFIG = {
+      groomFirst: "Sushant",
+      brideFirst: "Ankita",
+      weddingDateISO: "2026-12-27T17:22:00+05:30",
+      venueAddress: "Aher Garden, Atharv Park Society, Chinchwad, Aher Estate Rd, Walhekarwadi, Sector No. 30, Nigdi, Pune, Maharashtra 411033",
+      events: [
+        {
+          name: "Haldi",
+          when: "Sat, 26 Dec · 10:00 AM",
+          place: "Aher Garden Lawn, Nigdi, Pune",
+          dress: "Wear Yellow",
+          swatch: "#f3c623",
+          svg: EVENT_SVGS.haldi,
+          sceneBg: "linear-gradient(135deg, #fff3c4, #f7cf52)"
+        },
+        {
+          name: "Mehendi",
+          when: "Sat, 26 Dec · 03:00 PM",
+          place: "The Courtyard, Aher Garden",
+          dress: "Wear Green",
+          swatch: "#3b8d57",
+          svg: EVENT_SVGS.mehendi,
+          sceneBg: "linear-gradient(135deg, #daf4e3, #7fc094)"
+        },
+        {
+          name: "Sangeet",
+          when: "Sat, 26 Dec · 07:30 PM",
+          place: "Grand Hall, Aher Garden",
+          dress: "Indo-Western",
+          swatch: "#9d4edd",
+          svg: EVENT_SVGS.sangeet,
+          sceneBg: "linear-gradient(135deg, #f3daf9, #c084e0)"
+        },
+        {
+          name: "Baraat & Pheras",
+          when: "Sun, 27 Dec · 05:22 PM",
+          place: "The Mandap, Aher Garden, Pune",
+          dress: "Festive Red & Gold",
+          swatch: "#9e1c2f",
+          svg: EVENT_SVGS.pheras,
+          sceneBg: "linear-gradient(135deg, #fbd8cf, #cf5464)"
+        }
+      ],
+      photos: [
+        { src: "photos/photo1.jpg", caption: "Two souls, one timeless journey" },
+        { src: "photos/photo2.jpg", caption: "Every smile leads back to you" },
+        { src: "photos/photo3.jpg", caption: "A promise written in the stars" },
+        { src: "photos/photo4.jpg", caption: "Counting down to forever" },
+        { src: "photos/photo5.jpg", caption: "Laughter, love & blessings" }
+      ]
+    };
+
+    /* =========================================================================
+       PRE-RENDERED FLORALS (Canvas -> Data URL once for smooth mobile FPS)
+       ========================================================================= */
+    function createRoseDataUrl() {
+      const c = document.createElement("canvas");
+      c.width = 200;
+      c.height = 200;
+      const ctx = c.getContext("2d");
+
+      ctx.save();
+      ctx.translate(100, 100);
+      [0.6, 2.2, 4.1].forEach((ang) => {
+        ctx.save();
+        ctx.rotate(ang);
+        ctx.fillStyle = "rgba(104, 134, 96, 0.72)";
+        ctx.beginPath();
+        ctx.ellipse(46, 0, 26, 12, 0.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      const layers = [
+        { count: 7, r: 44, size: 28, color: "rgba(232, 169, 174, 0.72)" },
+        { count: 6, r: 28, size: 22, color: "rgba(209, 118, 130, 0.78)" },
+        { count: 5, r: 15, size: 16, color: "rgba(155, 58, 76, 0.85)" },
+        { count: 4, r: 6, size: 10, color: "rgba(110, 31, 47, 0.92)" }
+      ];
+      layers.forEach((l, li) => {
+        for (let i = 0; i < l.count; i++) {
+          const a = (i / l.count) * Math.PI * 2 + li * 0.45;
+          ctx.save();
+          ctx.rotate(a);
+          ctx.fillStyle = l.color;
+          ctx.beginPath();
+          ctx.ellipse(l.r, 0, l.size, l.size * 0.72, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      });
+      ctx.restore();
+      return c.toDataURL("image/png");
+    }
+
+    function createMarigoldDataUrl() {
+      const c = document.createElement("canvas");
+      c.width = 72;
+      c.height = 136;
+      const ctx = c.getContext("2d");
+
+      ctx.strokeStyle = "#8f6814";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(36, 0);
+      ctx.lineTo(36, 118);
+      ctx.stroke();
+
+      [22, 52, 82].forEach((y, idx) => {
+        const grad = ctx.createRadialGradient(32, y - 3, 2, 36, y, 16);
+        grad.addColorStop(0, idx % 2 === 0 ? "#ffd95a" : "#ffb347");
+        grad.addColorStop(1, idx % 2 === 0 ? "#e68a00" : "#cc5500");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(36, y, 14, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      ctx.fillStyle = "#d4af37";
+      ctx.beginPath();
+      ctx.moveTo(28, 118);
+      ctx.lineTo(44, 118);
+      ctx.lineTo(36, 104);
+      ctx.closePath();
+      ctx.fill();
+      return c.toDataURL("image/png");
+    }
+
+    function createFallbackPortrait(index) {
+      const palettes = [
+        ["#8a2c3f", "#d4af37"],
+        ["#6e1f2f", "#e8a9ae"],
+        ["#5b1725", "#f0d78c"],
+        ["#7c2335", "#d99b9b"],
+        ["#4a121e", "#e6c875"]
+      ];
+      const [c1, c2] = palettes[index % palettes.length];
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="${c1}"/>
+              <stop offset="100%" stop-color="${c2}"/>
+            </linearGradient>
+          </defs>
+          <rect width="300" height="400" fill="url(#g)"/>
+          <rect x="16" y="16" width="268" height="368" rx="18" fill="none" stroke="rgba(255,248,240,0.45)" stroke-width="1.5"/>
+          <circle cx="150" cy="165" r="48" fill="rgba(255,248,240,0.16)" stroke="rgba(255,248,240,0.5)" stroke-width="1.5"/>
+          <text x="150" y="173" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#fff8f0">S &amp; A</text>
+          <text x="150" y="255" text-anchor="middle" font-family="sans-serif" font-size="12" letter-spacing="2" fill="rgba(255,248,240,0.85)">PHOTO ${index + 1}</text>
+          <text x="150" y="280" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="12" fill="rgba(255,248,240,0.75)">Add photos/photo${index + 1}.jpg</text>
+        </svg>`;
+      return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    }
+
+    /* =========================================================================
+       PETAL & CONFETTI PARTICLE SYSTEM
+       ========================================================================= */
+    const petalCanvas = document.getElementById("petal-canvas");
+    const pCtx = petalCanvas.getContext("2d");
+    const particles = [];
+    let particlesRunning = false;
+
+    function resizePetalCanvas() {
+      petalCanvas.width = window.innerWidth;
+      petalCanvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizePetalCanvas, { passive: true });
+    resizePetalCanvas();
+
+    function spawnBurst(count, confetti = false) {
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * petalCanvas.width,
+          y: -15 - Math.random() * 60,
+          vx: (Math.random() - 0.5) * (confetti ? 4.2 : 1.6),
+          vy: 1.4 + Math.random() * (confetti ? 3.5 : 1.9),
+          size: confetti ? 5 + Math.random() * 5 : 7 + Math.random() * 7,
+          rot: Math.random() * Math.PI * 2,
+          vRot: (Math.random() - 0.5) * 0.08,
+          color: confetti
+            ? ["#d4af37", "#6e1f2f", "#f0d78c", "#e89ba3"][i % 4]
+            : ["rgba(218, 128, 138, 0.85)", "rgba(182, 74, 92, 0.82)", "rgba(244, 198, 200, 0.88)"][i % 3],
+          confetti
+        });
+      }
+      if (!particlesRunning) {
+        particlesRunning = true;
+        requestAnimationFrame(stepParticles);
+      }
+    }
+
+    function stepParticles() {
+      pCtx.clearRect(0, 0, petalCanvas.width, petalCanvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx + Math.sin(p.y * 0.02) * 0.35;
+        p.y += p.vy;
+        p.rot += p.vRot;
+
+        pCtx.save();
+        pCtx.translate(p.x, p.y);
+        pCtx.rotate(p.rot);
+        pCtx.fillStyle = p.color;
+        if (p.confetti) {
+          pCtx.fillRect(-p.size / 2, -p.size / 3, p.size, p.size * 0.65);
+        } else {
+          pCtx.beginPath();
+          pCtx.ellipse(0, 0, p.size, p.size * 0.62, 0, 0, Math.PI * 2);
+          pCtx.fill();
+        }
+        pCtx.restore();
+
+        if (p.y > petalCanvas.height + 24) {
+          particles.splice(i, 1);
+        }
+      }
+      if (particles.length > 0) {
+        requestAnimationFrame(stepParticles);
+      } else {
+        particlesRunning = false;
+      }
+    }
+
+    /* =========================================================================
+       TYPING EFFECT (letter-by-letter soft blur-in)
+       ========================================================================= */
+    function typeName(elId, text, delayMs = 0) {
+      const el = document.getElementById(elId);
+      el.innerHTML = "";
+      [...text].forEach((ch, idx) => {
+        const span = document.createElement("span");
+        span.className = "typed-letter";
+        span.textContent = ch === " " ? "\u00A0" : ch;
+        span.style.animationDelay = `${delayMs + idx * 65}ms`;
+        el.appendChild(span);
+      });
+    }
+
+    /* =========================================================================
+       MUSIC PLAYER WITH SOFT FADE-IN
+       ========================================================================= */
+    const audioEl = document.getElementById("bg-music");
+    const musicBtn = document.getElementById("music-btn");
+    const musicLabel = document.getElementById("music-label");
+    let musicAvailable = true;
+
+    audioEl.addEventListener("error", () => {
+      musicAvailable = false;
+    });
+
+    function fadeInMusic() {
+      if (!musicAvailable) return;
+      audioEl.volume = 0;
+      const playPromise = audioEl.play();
+      if (playPromise && playPromise.then) {
+        playPromise.then(() => {
+          musicBtn.classList.add("visible", "playing");
+          musicLabel.textContent = "Pause";
+          let vol = 0;
+          const fade = setInterval(() => {
+            vol = Math.min(0.45, vol + 0.05);
+            audioEl.volume = vol;
+            if (vol >= 0.45) clearInterval(fade);
+          }, 120);
+        }).catch(() => {
+          musicBtn.classList.add("visible");
+          musicLabel.textContent = "Play Music";
+        });
+      }
+    }
+
+    musicBtn.addEventListener("click", () => {
+      if (!musicAvailable) {
+        showToast("Add song.mp3 next to index.html to play music");
+        return;
+      }
+      if (audioEl.paused) {
+        audioEl.play().then(() => {
+          audioEl.volume = 0.45;
+          musicBtn.classList.add("playing");
+          musicLabel.textContent = "Pause";
+        }).catch(() => showToast("Add song.mp3 next to index.html"));
+      } else {
+        audioEl.pause();
+        musicBtn.classList.remove("playing");
+        musicLabel.textContent = "Play Music";
+      }
+    });
+
+    /* =========================================================================
+       3D BOOK OPENING & PRELOADER
+       ========================================================================= */
+    const overlay = document.getElementById("opening-overlay");
+    const loaderBox = document.getElementById("loader-box");
+    const bookStage = document.getElementById("book-stage");
+    const weddingBook = document.getElementById("wedding-book");
+    let isOpened = false;
+
+    function openInviteBook() {
+      if (isOpened) return;
+      isOpened = true;
+      weddingBook.classList.add("opened");
+      fadeInMusic();
+
+      setTimeout(() => {
+        overlay.classList.add("zooming");
+        document.body.classList.remove("locked");
+        document.getElementById("marigold-garland").classList.add("visible");
+        spawnBurst(38, false);
+        typeName("groom-name", CONFIG.groomFirst, 250);
+        typeName("bride-name", CONFIG.brideFirst, 750);
+      }, 720);
+
+      setTimeout(() => {
+        overlay.classList.add("hidden");
+      }, 1750);
+    }
+
+    weddingBook.addEventListener("click", openInviteBook);
+    document.getElementById("tap-prompt-btn").addEventListener("click", openInviteBook);
+    weddingBook.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openInviteBook();
+      }
+    });
+
+    /* =========================================================================
+       PULL TO REVEAL SCROLL + LIVE COUNTDOWN + CALENDAR (.ics)
+       ========================================================================= */
+    const scrollWidget = document.getElementById("scroll-widget");
+    const tasselHandle = document.getElementById("tassel-handle");
+    let scrollUnrolled = false;
+    let dragStartY = null;
+
+    function unrollScroll() {
+      if (scrollUnrolled) return;
+      scrollUnrolled = true;
+      scrollWidget.classList.add("unrolled");
+      spawnBurst(44, true);
+    }
+
+    tasselHandle.addEventListener("click", unrollScroll);
+    tasselHandle.addEventListener("pointerdown", (e) => {
+      dragStartY = e.clientY;
+      tasselHandle.setPointerCapture(e.pointerId);
+    });
+    tasselHandle.addEventListener("pointermove", (e) => {
+      if (dragStartY !== null && e.clientY - dragStartY > 24) {
+        dragStartY = null;
+        unrollScroll();
+      }
+    });
+    tasselHandle.addEventListener("pointerup", () => { dragStartY = null; });
+
+    function updateCountdown() {
+      const target = new Date(CONFIG.weddingDateISO).getTime();
+      const diff = Math.max(0, target - Date.now());
+      const days = Math.floor(diff / 86400000);
+      const hrs = Math.floor((diff % 86400000) / 3600000);
+      const min = Math.floor((diff % 3600000) / 60000);
+      const sec = Math.floor((diff % 60000) / 1000);
+      document.getElementById("cd-days").textContent = String(days).padStart(2, "0");
+      document.getElementById("cd-hrs").textContent = String(hrs).padStart(2, "0");
+      document.getElementById("cd-min").textContent = String(min).padStart(2, "0");
+      document.getElementById("cd-sec").textContent = String(sec).padStart(2, "0");
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    document.getElementById("add-calendar-btn").addEventListener("click", () => {
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Sushant & Ankita Wedding//EN",
+        "BEGIN:VEVENT",
+        "DTSTART:20261227T115200Z",
+        "DTEND:20261227T173000Z",
+        "SUMMARY:Sushant & Ankita Wedding",
+        `LOCATION:${CONFIG.venueAddress}`,
+        "DESCRIPTION:Muhurat & Pheras at 5:22 PM followed by Grand Reception.",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "sushant-ankita-wedding.ics";
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Calendar invite downloaded");
+    });
+
+    /* =========================================================================
+       3D SWIPEABLE CAROUSEL FACTORY (Used for Festivities & Our Story)
+       ========================================================================= */
+    function initCarousel({ shellId, trackId, dotsId, prevId, nextId, items, renderCard }) {
+      const shell = document.getElementById(shellId);
+      const track = document.getElementById(trackId);
+      const dotsWrap = document.getElementById(dotsId);
+      let active = 0;
+
+      const cards = items.map((item, i) => {
+        const card = renderCard(item, i);
+        card.addEventListener("click", () => {
+          const pos = card.getAttribute("data-pos");
+          if (pos === "left") go(-1);
+          if (pos === "right") go(1);
+        });
+        track.appendChild(card);
+        return card;
+      });
+
+      const dots = items.map((_, i) => {
+        const dot = document.createElement("span");
+        dot.className = "carousel-dot";
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+
+      function layout() {
+        const n = cards.length;
+        cards.forEach((card, i) => {
+          const diff = (i - active + n) % n;
+          if (diff === 0) card.setAttribute("data-pos", "center");
+          else if (diff === 1) card.setAttribute("data-pos", "right");
+          else if (diff === n - 1) card.setAttribute("data-pos", "left");
+          else card.setAttribute("data-pos", "hidden");
+        });
+        dots.forEach((d, i) => d.classList.toggle("active", i === active));
+      }
+
+      function go(delta) {
+        active = (active + delta + cards.length) % cards.length;
+        layout();
+      }
+
+      document.getElementById(prevId).addEventListener("click", () => go(-1));
+      document.getElementById(nextId).addEventListener("click", () => go(1));
+
+      let startX = null;
+      shell.addEventListener("pointerdown", (e) => { startX = e.clientX; });
+      shell.addEventListener("pointerup", (e) => {
+        if (startX === null) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 36) go(dx < 0 ? 1 : -1);
+        startX = null;
+      });
+
+      layout();
+    }
+
+    /* =========================================================================
+       INIT DATA, ASSETS, PARALLAX & INTERSECTION OBSERVERS
+       ========================================================================= */
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    document.getElementById("copy-address-btn").addEventListener("click", () => {
+      navigator.clipboard?.writeText(CONFIG.venueAddress).then(
+        () => showToast("Venue address copied!"),
+        () => showToast("Copy failed — tap Get Directions")
+      );
+    });
+
+    (function bootstrap() {
+      const roseSrc = createRoseDataUrl();
+      const marigoldSrc = createMarigoldDataUrl();
+      document.querySelectorAll("[data-rose]").forEach((img) => { img.src = roseSrc; });
+      document.querySelectorAll("[data-marigold]").forEach((img) => { img.src = marigoldSrc; });
+
+      const heroArchBg = document.getElementById("hero-arch-bg");
+      const firstPhoto = new Image();
+      firstPhoto.onload = () => { heroArchBg.style.backgroundImage = `url("${CONFIG.photos[0].src}")`; };
+      firstPhoto.onerror = () => { heroArchBg.style.backgroundImage = `url("${createFallbackPortrait(0)}")`; };
+      firstPhoto.src = CONFIG.photos[0].src;
+
+      initCarousel({
+        shellId: "events-carousel",
+        trackId: "events-track",
+        dotsId: "events-dots",
+        prevId: "events-prev",
+        nextId: "events-next",
+        items: CONFIG.events,
+        renderCard: (ev) => {
+          const card = document.createElement("div");
+          card.className = "carousel-card";
+          card.innerHTML = `
+            <div class="event-scene">
+              <div class="event-scene-art" style="background:${ev.sceneBg};"></div>
+              <div class="event-icon-badge">${ev.svg}</div>
+            </div>
+            <div class="event-body">
+              <div>
+                <div class="event-when">${ev.when}</div>
+                <h3 class="event-name">${ev.name}</h3>
+                <p class="event-place">${ev.place}</p>
+              </div>
+              <div class="dress-row">
+                <span class="dress-swatch" style="background:${ev.swatch};"></span>
+                <span>${ev.dress}</span>
+              </div>
+            </div>`;
+          return card;
+        }
+      });
+
+      initCarousel({
+        shellId: "story-carousel",
+        trackId: "story-track",
+        dotsId: "story-dots",
+        prevId: "story-prev",
+        nextId: "story-next",
+        items: CONFIG.photos,
+        renderCard: (photo, idx) => {
+          const card = document.createElement("div");
+          card.className = "carousel-card story-card";
+          const wrap = document.createElement("div");
+          wrap.className = "story-photo-wrap";
+          const img = document.createElement("img");
+          img.alt = photo.caption;
+          img.src = photo.src;
+          img.onerror = () => { img.src = createFallbackPortrait(idx); };
+          wrap.appendChild(img);
+
+          const cap = document.createElement("div");
+          cap.className = "story-caption";
+          cap.textContent = photo.caption;
+
+          card.appendChild(wrap);
+          card.appendChild(cap);
+          return card;
+        }
+      });
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            entry.target.classList.remove("anim-paused");
+          } else {
+            entry.target.classList.add("anim-paused");
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll("section").forEach((sec) => io.observe(sec));
+
+      const parallaxEls = document.querySelectorAll("[data-parallax]");
+      const strands = document.querySelectorAll(".marigold-strand");
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const sy = window.scrollY;
+          parallaxEls.forEach((el) => {
+            const dir = parseFloat(el.dataset.parallax) >= 0 ? 1 : -1;
+            const shift = Math.sin(sy * 0.004) * 10 * dir;
+            const flip = el.classList.contains("corner-rose-tr") || el.classList.contains("corner-rose-br") ? "scaleX(-1) " : "";
+            el.style.transform = `${flip}translate3d(0, ${shift}px, 0)`;
+          });
+          const sway = Math.sin(sy * 0.025) * 6;
+          strands.forEach((st, i) => {
+            st.style.transform = `rotate(${i % 2 === 0 ? sway : -sway}deg)`;
+          });
+          ticking = false;
+        });
+      }, { passive: true });
+
+      Promise.race([
+        document.fonts?.ready || Promise.resolve(),
+        new Promise((r) => setTimeout(r, 1500))
+      ]).then(() => {
+        loaderBox.classList.add("fade-out");
+        bookStage.classList.add("ready");
+      });
+    })();
+  </script>
+</body>
+</html>
