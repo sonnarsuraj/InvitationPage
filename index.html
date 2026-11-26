@@ -961,74 +961,7 @@
       border: 1.5px solid rgba(228, 193, 111, 0.6);
     }
 
-    /* ---------------- 9. INTERACTIVE RSVP & SONG REQUEST ---------------- */
-    .rsvp-card {
-      padding: 24px 20px;
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-      text-align: left;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 12px;
-      background: rgba(7, 20, 19, 0.82);
-      border: 1px solid rgba(228, 193, 111, 0.32);
-      color: var(--ivory);
-      font-family: var(--font-sans);
-      font-size: 0.84rem;
-      outline: none;
-    }
-
-    .form-input:focus {
-      border-color: var(--gold);
-    }
-
-    .chip-group {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .select-chip {
-      padding: 7px 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(228, 193, 111, 0.32);
-      background: rgba(7, 20, 19, 0.72);
-      color: var(--muted);
-      font-size: 0.72rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .select-chip.active {
-      background: rgba(228, 193, 111, 0.2);
-      border-color: var(--gold);
-      color: var(--gold-bright);
-      font-weight: 500;
-    }
-
-    .rsvp-success {
-      display: none;
-      text-align: center;
-      padding: 16px 8px;
-    }
-
-    .rsvp-success.show { display: block; }
-
-    /* ---------------- 10. LOCATION & TRAVEL PILLS ---------------- */
+    /* ---------------- 8. LOCATION & TRAVEL PILLS ---------------- */
     .night-map-card {
       padding: 18px;
       text-align: center;
@@ -1129,6 +1062,22 @@
       display: flex;
       gap: 8px;
       margin-bottom: 16px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: rgba(7, 20, 19, 0.82);
+      border: 1px solid rgba(228, 193, 111, 0.32);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold);
     }
 
     .blessing-box {
@@ -1382,48 +1331,7 @@
       </div>
     </section>
 
-    <!-- 9. INTERACTIVE RSVP & SONG REQUEST -->
-    <section id="rsvp" class="reveal">
-      <div class="eyebrow">Kindly Respond</div>
-      <h2 class="sec-title">Will You Join Us?</h2>
-      <div class="royal-divider" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="#e4c16f"/></svg></div>
-      <p class="sec-sub">Let us know your presence &amp; request a song for the Sangeet floor</p>
-
-      <div class="royal-panel rsvp-card">
-        <form id="rsvp-form">
-          <div class="form-group">
-            <label class="form-label" for="rsvp-name">Your Name</label>
-            <input class="form-input" id="rsvp-name" type="text" placeholder="e.g. Rahul & Family" required />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Guests Attending</label>
-            <div class="chip-group" id="rsvp-guests">
-              <button class="select-chip active" type="button" data-val="1">1 Guest</button>
-              <button class="select-chip" type="button" data-val="2">2 Guests</button>
-              <button class="select-chip" type="button" data-val="3">3 Guests</button>
-              <button class="select-chip" type="button" data-val="4+">4+ Family</button>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="rsvp-song">Sangeet Song Request (Optional)</label>
-            <input class="form-input" id="rsvp-song" type="text" placeholder="e.g. Gallan Goodiyaan / Zingaat" />
-          </div>
-
-          <button class="btn-gold" type="submit" style="width:100%;">Confirm Presence ✨</button>
-        </form>
-
-        <div class="rsvp-success" id="rsvp-success">
-          <div style="font-size:2rem;margin-bottom:8px;">💐</div>
-          <h3 style="font-family:var(--font-serif);font-size:1.75rem;color:var(--gold-bright);margin-bottom:6px;">Thank You!</h3>
-          <p id="rsvp-summary" style="font-size:0.82rem;color:var(--muted);line-height:1.55;margin-bottom:16px;"></p>
-          <a class="btn-outline-gold" id="rsvp-wa-btn" href="#" target="_blank" rel="noopener noreferrer">Send via WhatsApp</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. LOCATION & TRAVEL TIPS -->
+    <!-- 9. LOCATION & TRAVEL TIPS -->
     <section id="location" class="reveal">
       <div class="eyebrow">Venue</div>
       <h2 class="sec-title">How to Reach</h2>
@@ -1913,29 +1821,6 @@
       });
     });
     renderWardrobe("day");
-
-    /* RSVP Form */
-    let selectedGuests = "1";
-    document.querySelectorAll("#rsvp-guests .select-chip").forEach((chip) => {
-      chip.addEventListener("click", () => {
-        document.querySelectorAll("#rsvp-guests .select-chip").forEach((c) => c.classList.remove("active"));
-        chip.classList.add("active");
-        selectedGuests = chip.dataset.val;
-      });
-    });
-
-    document.getElementById("rsvp-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("rsvp-name").value.trim();
-      const song = document.getElementById("rsvp-song").value.trim();
-      document.getElementById("rsvp-form").style.display = "none";
-      const summary = `${name} (${selectedGuests} ${selectedGuests === "1" ? "guest" : "guests"}) — we can’t wait to welcome you!${song ? ` Song request: "${song}".` : ""}`;
-      document.getElementById("rsvp-summary").textContent = summary;
-      const waText = encodeURIComponent(`Hi! This is ${name}. Confirming ${selectedGuests} guest(s) for Sushant & Ankita's wedding on 27 Dec 2026!${song ? ` Song request: ${song}` : ""}`);
-      document.getElementById("rsvp-wa-btn").href = `https://wa.me/?text=${waText}`;
-      document.getElementById("rsvp-success").classList.add("show");
-      spawnGoldBurst(44, true);
-    });
 
     /* Copy Address */
     document.getElementById("copy-addr-btn").addEventListener("click", () => {
