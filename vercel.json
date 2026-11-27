@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/2", "destination": "/velvet-book-invite.html" }
+  ]
+}
